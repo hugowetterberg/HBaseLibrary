@@ -3,8 +3,6 @@
  *  HBaseLibrary
  *
  *  Created by Hugo Wetterberg on 2009-08-16.
- *  Copyright 2009 Hugo Wetterberg. All rights reserved.
- *
  */
 
 #include <string.h>

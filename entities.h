@@ -3,8 +3,9 @@
  *  HBaseLibrary
  *
  *  Created by Hugo Wetterberg on 2009-08-16.
- *  Copyright 2009 Hugo Wetterberg. All rights reserved.
  *
+ *  I have to track down the source of this code. I think
+ *  that I found it at Stack Overflow.
  */
 
 #ifndef _DECODE_HTML_ENTITIES_UTF8
