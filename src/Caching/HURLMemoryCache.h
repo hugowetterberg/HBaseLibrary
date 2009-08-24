@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "HSimpleURLCache.h"
-#import "JAPriorityQueue.h"
 
 @interface HURLMemoryCache : NSObject <HSimpleURLCache> {
     int memLimit;
