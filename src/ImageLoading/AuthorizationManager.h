@@ -1,6 +1,6 @@
 //
 //  AuthorizationManager.h
-//  Kalendariet
+//  HBaseLibrary
 //
 //  Created by Hugo Wetterberg on 2009-07-19.
 //  Copyright 2009 Hugo Wetterberg. All rights reserved.
