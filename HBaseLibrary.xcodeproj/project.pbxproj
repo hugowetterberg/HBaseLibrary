@@ -9,10 +9,19 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* HBaseLibrary_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* HBaseLibrary_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		AF3CD854103543F800920352 /* HTMLDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = AF3CD852103543F800920352 /* HTMLDecode.h */; };
-		AF3CD855103543F800920352 /* HTMLDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3CD853103543F800920352 /* HTMLDecode.m */; };
-		AF3CD8B81037703100920352 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = AF3CD8B61037703100920352 /* entities.h */; };
-		AF3CD8B91037703100920352 /* entities.c in Sources */ = {isa = PBXBuildFile; fileRef = AF3CD8B71037703100920352 /* entities.c */; };
+		AF2DCEB31043432C00995821 /* HSimpleURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */; };
+		AF2DCEB41043432C00995821 /* HURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAD1043432C00995821 /* HURLCache.h */; };
+		AF2DCEB51043432C00995821 /* HURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEAE1043432C00995821 /* HURLCache.m */; };
+		AF2DCEB61043432C00995821 /* HURLFileCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAF1043432C00995821 /* HURLFileCache.h */; };
+		AF2DCEB71043432C00995821 /* HURLFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEB01043432C00995821 /* HURLFileCache.m */; };
+		AF2DCEB81043432C00995821 /* HURLMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEB11043432C00995821 /* HURLMemoryCache.h */; };
+		AF2DCEB91043432C00995821 /* HURLMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEB21043432C00995821 /* HURLMemoryCache.m */; };
+		AF2DCEBE1043437100995821 /* entities.c in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEBA1043437100995821 /* entities.c */; };
+		AF2DCEBF1043437100995821 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEBB1043437100995821 /* entities.h */; };
+		AF2DCEC01043437100995821 /* HTMLDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEBC1043437100995821 /* HTMLDecode.h */; };
+		AF2DCEC11043437100995821 /* HTMLDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEBD1043437100995821 /* HTMLDecode.m */; };
+		AF2DCEC41043439200995821 /* AuthorizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEC21043439200995821 /* AuthorizationManager.h */; };
+		AF2DCEC51043439200995821 /* AuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEC31043439200995821 /* AuthorizationManager.m */; };
 		AF4724FC1031E928002CA462 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4724FB1031E928002CA462 /* UIKit.framework */; };
 		AF4725041031E940002CA462 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4725031031E940002CA462 /* CoreGraphics.framework */; };
 		AF7A5EC5103035DE001BCFC9 /* AsyncImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5E81103035DE001BCFC9 /* AsyncImageLoader.h */; };
@@ -22,8 +31,6 @@
 		AF7A5EC9103035DE001BCFC9 /* AsyncImageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5E85103035DE001BCFC9 /* AsyncImageTableCell.m */; };
 		AF7A5ECA103035DE001BCFC9 /* AsyncImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5E86103035DE001BCFC9 /* AsyncImageView.h */; };
 		AF7A5ECB103035DE001BCFC9 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5E87103035DE001BCFC9 /* AsyncImageView.m */; };
-		AF7A5ECC103035DE001BCFC9 /* AuthorizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5E88103035DE001BCFC9 /* AuthorizationManager.h */; };
-		AF7A5ECD103035DE001BCFC9 /* AuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5E89103035DE001BCFC9 /* AuthorizationManager.m */; };
 		AF7A5ED3103035DE001BCFC9 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5E90103035DE001BCFC9 /* JSON.h */; };
 		AF7A5ED4103035DE001BCFC9 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5E91103035DE001BCFC9 /* NSObject+SBJSON.h */; };
 		AF7A5ED5103035DE001BCFC9 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5E92103035DE001BCFC9 /* NSObject+SBJSON.m */; };
@@ -74,22 +81,25 @@
 		AF7A5F02103035DE001BCFC9 /* RESTClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5EC2103035DE001BCFC9 /* RESTClient.h */; };
 		AF7A5F03103035DE001BCFC9 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5EC3103035DE001BCFC9 /* RESTClient.m */; };
 		AF7A5F04103035DE001BCFC9 /* RESTClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5EC4103035DE001BCFC9 /* RESTClientDelegate.h */; };
-		AF7A5F081030364C001BCFC9 /* HURLFileCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5F061030364C001BCFC9 /* HURLFileCache.h */; };
-		AF7A5F091030364C001BCFC9 /* HURLFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5F071030364C001BCFC9 /* HURLFileCache.m */; };
-		AF7A5F1610303BFE001BCFC9 /* HSimpleURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5F1510303BFE001BCFC9 /* HSimpleURLCache.h */; };
-		AF7A5F2110303D61001BCFC9 /* HURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5F1F10303D61001BCFC9 /* HURLCache.h */; };
-		AF7A5F2210303D61001BCFC9 /* HURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5F2010303D61001BCFC9 /* HURLCache.m */; };
-		AF7A5F5B10307CDF001BCFC9 /* HURLMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5F5910307CDF001BCFC9 /* HURLMemoryCache.h */; };
-		AF7A5F5C10307CDF001BCFC9 /* HURLMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5F5A10307CDF001BCFC9 /* HURLMemoryCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA747D9E0F9514B9006C5449 /* HBaseLibrary_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseLibrary_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AF3CD852103543F800920352 /* HTMLDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLDecode.h; sourceTree = "<group>"; };
-		AF3CD853103543F800920352 /* HTMLDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLDecode.m; sourceTree = "<group>"; };
-		AF3CD8B61037703100920352 /* entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entities.h; sourceTree = "<group>"; };
-		AF3CD8B71037703100920352 /* entities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = entities.c; sourceTree = "<group>"; };
+		AF2DCE4E103F125A00995821 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSimpleURLCache.h; sourceTree = "<group>"; };
+		AF2DCEAD1043432C00995821 /* HURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLCache.h; sourceTree = "<group>"; };
+		AF2DCEAE1043432C00995821 /* HURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLCache.m; sourceTree = "<group>"; };
+		AF2DCEAF1043432C00995821 /* HURLFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLFileCache.h; sourceTree = "<group>"; };
+		AF2DCEB01043432C00995821 /* HURLFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLFileCache.m; sourceTree = "<group>"; };
+		AF2DCEB11043432C00995821 /* HURLMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLMemoryCache.h; sourceTree = "<group>"; };
+		AF2DCEB21043432C00995821 /* HURLMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLMemoryCache.m; sourceTree = "<group>"; };
+		AF2DCEBA1043437100995821 /* entities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entities.c; path = src/entities.c; sourceTree = "<group>"; };
+		AF2DCEBB1043437100995821 /* entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = entities.h; path = src/entities.h; sourceTree = "<group>"; };
+		AF2DCEBC1043437100995821 /* HTMLDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMLDecode.h; path = src/HTMLDecode.h; sourceTree = "<group>"; };
+		AF2DCEBD1043437100995821 /* HTMLDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMLDecode.m; path = src/HTMLDecode.m; sourceTree = "<group>"; };
+		AF2DCEC21043439200995821 /* AuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizationManager.h; path = src/AuthorizationManager.h; sourceTree = SOURCE_ROOT; };
+		AF2DCEC31043439200995821 /* AuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizationManager.m; path = src/AuthorizationManager.m; sourceTree = SOURCE_ROOT; };
 		AF4724FB1031E928002CA462 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AF4725031031E940002CA462 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AF7A5E81103035DE001BCFC9 /* AsyncImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageLoader.h; sourceTree = "<group>"; };
@@ -99,8 +109,6 @@
 		AF7A5E85103035DE001BCFC9 /* AsyncImageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageTableCell.m; sourceTree = "<group>"; };
 		AF7A5E86103035DE001BCFC9 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		AF7A5E87103035DE001BCFC9 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
-		AF7A5E88103035DE001BCFC9 /* AuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationManager.h; sourceTree = "<group>"; };
-		AF7A5E89103035DE001BCFC9 /* AuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizationManager.m; sourceTree = "<group>"; };
 		AF7A5E90103035DE001BCFC9 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		AF7A5E91103035DE001BCFC9 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		AF7A5E92103035DE001BCFC9 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -151,13 +159,6 @@
 		AF7A5EC2103035DE001BCFC9 /* RESTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClient.h; sourceTree = "<group>"; };
 		AF7A5EC3103035DE001BCFC9 /* RESTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClient.m; sourceTree = "<group>"; };
 		AF7A5EC4103035DE001BCFC9 /* RESTClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientDelegate.h; sourceTree = "<group>"; };
-		AF7A5F061030364C001BCFC9 /* HURLFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLFileCache.h; sourceTree = "<group>"; };
-		AF7A5F071030364C001BCFC9 /* HURLFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLFileCache.m; sourceTree = "<group>"; };
-		AF7A5F1510303BFE001BCFC9 /* HSimpleURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSimpleURLCache.h; sourceTree = "<group>"; };
-		AF7A5F1F10303D61001BCFC9 /* HURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLCache.h; sourceTree = "<group>"; };
-		AF7A5F2010303D61001BCFC9 /* HURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLCache.m; sourceTree = "<group>"; };
-		AF7A5F5910307CDF001BCFC9 /* HURLMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLMemoryCache.h; sourceTree = "<group>"; };
-		AF7A5F5A10307CDF001BCFC9 /* HURLMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLMemoryCache.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libHBaseLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHBaseLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -186,6 +187,7 @@
 		0867D691FE84028FC02AAC07 /* HBaseLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				AF2DCE4D103F123600995821 /* Resources */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -207,9 +209,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AF2DCEAB1043432C00995821 /* Caching */,
 				AF3CD851103543AE00920352 /* Strings */,
-				AF7A5F5D10307EC7001BCFC9 /* Collections */,
-				AF7A5F0510303638001BCFC9 /* Network */,
 				AF7A5E80103035DE001BCFC9 /* ImageLoading */,
 				AF7A5E8F103035DE001BCFC9 /* JSON */,
 				AF7A5E9D103035DE001BCFC9 /* OAuth */,
@@ -226,13 +227,36 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		AF2DCE4D103F123600995821 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AF2DCE4E103F125A00995821 /* README.markdown */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AF2DCEAB1043432C00995821 /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+				AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */,
+				AF2DCEAD1043432C00995821 /* HURLCache.h */,
+				AF2DCEAE1043432C00995821 /* HURLCache.m */,
+				AF2DCEAF1043432C00995821 /* HURLFileCache.h */,
+				AF2DCEB01043432C00995821 /* HURLFileCache.m */,
+				AF2DCEB11043432C00995821 /* HURLMemoryCache.h */,
+				AF2DCEB21043432C00995821 /* HURLMemoryCache.m */,
+			);
+			name = Caching;
+			path = src/Caching;
+			sourceTree = "<group>";
+		};
 		AF3CD851103543AE00920352 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
-				AF3CD852103543F800920352 /* HTMLDecode.h */,
-				AF3CD853103543F800920352 /* HTMLDecode.m */,
-				AF3CD8B61037703100920352 /* entities.h */,
-				AF3CD8B71037703100920352 /* entities.c */,
+				AF2DCEBA1043437100995821 /* entities.c */,
+				AF2DCEBB1043437100995821 /* entities.h */,
+				AF2DCEBC1043437100995821 /* HTMLDecode.h */,
+				AF2DCEBD1043437100995821 /* HTMLDecode.m */,
 			);
 			name = Strings;
 			sourceTree = "<group>";
@@ -247,8 +271,6 @@
 				AF7A5E85103035DE001BCFC9 /* AsyncImageTableCell.m */,
 				AF7A5E86103035DE001BCFC9 /* AsyncImageView.h */,
 				AF7A5E87103035DE001BCFC9 /* AsyncImageView.m */,
-				AF7A5E88103035DE001BCFC9 /* AuthorizationManager.h */,
-				AF7A5E89103035DE001BCFC9 /* AuthorizationManager.m */,
 			);
 			name = ImageLoading;
 			path = src/ImageLoading;
@@ -278,6 +300,8 @@
 		AF7A5E9D103035DE001BCFC9 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				AF2DCEC21043439200995821 /* AuthorizationManager.h */,
+				AF2DCEC31043439200995821 /* AuthorizationManager.m */,
 				AF7A5E9E103035DE001BCFC9 /* Crypto */,
 				AF7A5EA5103035DE001BCFC9 /* NSMutableURLRequest+Parameters.h */,
 				AF7A5EA6103035DE001BCFC9 /* NSMutableURLRequest+Parameters.m */,
@@ -336,21 +360,6 @@
 			path = src/REST;
 			sourceTree = "<group>";
 		};
-		AF7A5F0510303638001BCFC9 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				AF7A5F061030364C001BCFC9 /* HURLFileCache.h */,
-				AF7A5F071030364C001BCFC9 /* HURLFileCache.m */,
-				AF7A5F1510303BFE001BCFC9 /* HSimpleURLCache.h */,
-				AF7A5F1F10303D61001BCFC9 /* HURLCache.h */,
-				AF7A5F2010303D61001BCFC9 /* HURLCache.m */,
-				AF7A5F5910307CDF001BCFC9 /* HURLMemoryCache.h */,
-				AF7A5F5A10307CDF001BCFC9 /* HURLMemoryCache.m */,
-			);
-			name = Network;
-			path = src/Network;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -363,7 +372,6 @@
 				AF7A5EC7103035DE001BCFC9 /* AsyncImageLoaderDelegate.h in Headers */,
 				AF7A5EC8103035DE001BCFC9 /* AsyncImageTableCell.h in Headers */,
 				AF7A5ECA103035DE001BCFC9 /* AsyncImageView.h in Headers */,
-				AF7A5ECC103035DE001BCFC9 /* AuthorizationManager.h in Headers */,
 				AF7A5ED3103035DE001BCFC9 /* JSON.h in Headers */,
 				AF7A5ED4103035DE001BCFC9 /* NSObject+SBJSON.h in Headers */,
 				AF7A5ED6103035DE001BCFC9 /* NSString+SBJSON.h in Headers */,
@@ -391,12 +399,13 @@
 				AF7A5F00103035DE001BCFC9 /* OAuthRESTClientDelegate.h in Headers */,
 				AF7A5F02103035DE001BCFC9 /* RESTClient.h in Headers */,
 				AF7A5F04103035DE001BCFC9 /* RESTClientDelegate.h in Headers */,
-				AF7A5F081030364C001BCFC9 /* HURLFileCache.h in Headers */,
-				AF7A5F1610303BFE001BCFC9 /* HSimpleURLCache.h in Headers */,
-				AF7A5F2110303D61001BCFC9 /* HURLCache.h in Headers */,
-				AF7A5F5B10307CDF001BCFC9 /* HURLMemoryCache.h in Headers */,
-				AF3CD854103543F800920352 /* HTMLDecode.h in Headers */,
-				AF3CD8B81037703100920352 /* entities.h in Headers */,
+				AF2DCEB31043432C00995821 /* HSimpleURLCache.h in Headers */,
+				AF2DCEB41043432C00995821 /* HURLCache.h in Headers */,
+				AF2DCEB61043432C00995821 /* HURLFileCache.h in Headers */,
+				AF2DCEB81043432C00995821 /* HURLMemoryCache.h in Headers */,
+				AF2DCEBF1043437100995821 /* entities.h in Headers */,
+				AF2DCEC01043437100995821 /* HTMLDecode.h in Headers */,
+				AF2DCEC41043439200995821 /* AuthorizationManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +455,6 @@
 				AF7A5EC6103035DE001BCFC9 /* AsyncImageLoader.m in Sources */,
 				AF7A5EC9103035DE001BCFC9 /* AsyncImageTableCell.m in Sources */,
 				AF7A5ECB103035DE001BCFC9 /* AsyncImageView.m in Sources */,
-				AF7A5ECD103035DE001BCFC9 /* AuthorizationManager.m in Sources */,
 				AF7A5ED5103035DE001BCFC9 /* NSObject+SBJSON.m in Sources */,
 				AF7A5ED7103035DE001BCFC9 /* NSString+SBJSON.m in Sources */,
 				AF7A5ED9103035DE001BCFC9 /* SBJSON.m in Sources */,
@@ -470,11 +478,12 @@
 				AF7A5EFE103035DE001BCFC9 /* OAToken.m in Sources */,
 				AF7A5F01103035DE001BCFC9 /* OAuthRESTClientDelegate.m in Sources */,
 				AF7A5F03103035DE001BCFC9 /* RESTClient.m in Sources */,
-				AF7A5F091030364C001BCFC9 /* HURLFileCache.m in Sources */,
-				AF7A5F2210303D61001BCFC9 /* HURLCache.m in Sources */,
-				AF7A5F5C10307CDF001BCFC9 /* HURLMemoryCache.m in Sources */,
-				AF3CD855103543F800920352 /* HTMLDecode.m in Sources */,
-				AF3CD8B91037703100920352 /* entities.c in Sources */,
+				AF2DCEB51043432C00995821 /* HURLCache.m in Sources */,
+				AF2DCEB71043432C00995821 /* HURLFileCache.m in Sources */,
+				AF2DCEB91043432C00995821 /* HURLMemoryCache.m in Sources */,
+				AF2DCEBE1043437100995821 /* entities.c in Sources */,
+				AF2DCEC11043437100995821 /* HTMLDecode.m in Sources */,
+				AF2DCEC51043439200995821 /* AuthorizationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
