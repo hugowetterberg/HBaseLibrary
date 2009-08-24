@@ -81,8 +81,6 @@
 		AF7A5F2210303D61001BCFC9 /* HURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5F2010303D61001BCFC9 /* HURLCache.m */; };
 		AF7A5F5B10307CDF001BCFC9 /* HURLMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5F5910307CDF001BCFC9 /* HURLMemoryCache.h */; };
 		AF7A5F5C10307CDF001BCFC9 /* HURLMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5F5A10307CDF001BCFC9 /* HURLMemoryCache.m */; };
-		AF7A5F6010307EC7001BCFC9 /* JAPriorityQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5F5E10307EC7001BCFC9 /* JAPriorityQueue.h */; };
-		AF7A5F6110307EC7001BCFC9 /* JAPriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5F5F10307EC7001BCFC9 /* JAPriorityQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,8 +158,6 @@
 		AF7A5F2010303D61001BCFC9 /* HURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLCache.m; sourceTree = "<group>"; };
 		AF7A5F5910307CDF001BCFC9 /* HURLMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLMemoryCache.h; sourceTree = "<group>"; };
 		AF7A5F5A10307CDF001BCFC9 /* HURLMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLMemoryCache.m; sourceTree = "<group>"; };
-		AF7A5F5E10307EC7001BCFC9 /* JAPriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAPriorityQueue.h; sourceTree = "<group>"; };
-		AF7A5F5F10307EC7001BCFC9 /* JAPriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAPriorityQueue.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libHBaseLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHBaseLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -355,16 +351,6 @@
 			path = src/Network;
 			sourceTree = "<group>";
 		};
-		AF7A5F5D10307EC7001BCFC9 /* Collections */ = {
-			isa = PBXGroup;
-			children = (
-				AF7A5F5E10307EC7001BCFC9 /* JAPriorityQueue.h */,
-				AF7A5F5F10307EC7001BCFC9 /* JAPriorityQueue.m */,
-			);
-			name = Collections;
-			path = src/Collections;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -409,7 +395,6 @@
 				AF7A5F1610303BFE001BCFC9 /* HSimpleURLCache.h in Headers */,
 				AF7A5F2110303D61001BCFC9 /* HURLCache.h in Headers */,
 				AF7A5F5B10307CDF001BCFC9 /* HURLMemoryCache.h in Headers */,
-				AF7A5F6010307EC7001BCFC9 /* JAPriorityQueue.h in Headers */,
 				AF3CD854103543F800920352 /* HTMLDecode.h in Headers */,
 				AF3CD8B81037703100920352 /* entities.h in Headers */,
 			);
@@ -488,7 +473,6 @@
 				AF7A5F091030364C001BCFC9 /* HURLFileCache.m in Sources */,
 				AF7A5F2210303D61001BCFC9 /* HURLCache.m in Sources */,
 				AF7A5F5C10307CDF001BCFC9 /* HURLMemoryCache.m in Sources */,
-				AF7A5F6110307EC7001BCFC9 /* JAPriorityQueue.m in Sources */,
 				AF3CD855103543F800920352 /* HTMLDecode.m in Sources */,
 				AF3CD8B91037703100920352 /* entities.c in Sources */,
 			);
