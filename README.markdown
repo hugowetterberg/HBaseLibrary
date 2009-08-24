@@ -3,6 +3,14 @@ HBaseLibrary
 
 This is the utility library that I've used for my first foray into iPhone development: AllaKartor.se.
 
+License
+-----------------------------
+
+All code is licensed under the New BSD License http://www.opensource.org/licenses/bsd-license.php except the following:
+
+* OAuth http://www.apache.org/licenses/LICENSE-2.0
+* entities.h and entities.c http://creativecommons.org/licenses/by-sa/2.5/
+
 Strings
 -----------------------------
 

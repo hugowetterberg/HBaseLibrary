@@ -86,7 +86,7 @@
 /* Begin PBXFileReference section */
 		AA747D9E0F9514B9006C5449 /* HBaseLibrary_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseLibrary_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AF2DCE4E103F125A00995821 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		AF2DCE4E103F125A00995821 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; wrapsLines = 1; };
 		AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSimpleURLCache.h; sourceTree = "<group>"; };
 		AF2DCEAD1043432C00995821 /* HURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLCache.h; sourceTree = "<group>"; };
 		AF2DCEAE1043432C00995821 /* HURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLCache.m; sourceTree = "<group>"; };
@@ -100,6 +100,7 @@
 		AF2DCEBD1043437100995821 /* HTMLDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMLDecode.m; path = src/HTMLDecode.m; sourceTree = "<group>"; };
 		AF2DCEC21043439200995821 /* AuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizationManager.h; path = src/AuthorizationManager.h; sourceTree = SOURCE_ROOT; };
 		AF2DCEC31043439200995821 /* AuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizationManager.m; path = src/AuthorizationManager.m; sourceTree = SOURCE_ROOT; };
+		AF2DCED8104345C800995821 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; wrapsLines = 1; };
 		AF4724FB1031E928002CA462 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AF4725031031E940002CA462 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AF7A5E81103035DE001BCFC9 /* AsyncImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageLoader.h; sourceTree = "<group>"; };
@@ -231,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				AF2DCE4E103F125A00995821 /* README.markdown */,
+				AF2DCED8104345C800995821 /* LICENSE.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

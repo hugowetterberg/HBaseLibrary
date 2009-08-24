@@ -3,6 +3,10 @@
  *  HBaseLibrary
  *
  *  Created by Hugo Wetterberg on 2009-08-16.
+ *
+ *  Written by Cristoph http://stackoverflow.com/users/48015/christoph
+ *  at Stack Overflow: http://stackoverflow.com/questions/1082162/how-to-unescape-html-in-c
+ *  License: http://creativecommons.org/licenses/by-sa/2.5/
  */
 
 #include <string.h>
