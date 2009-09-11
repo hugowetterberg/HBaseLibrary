@@ -26,7 +26,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString (OAURLEncodingAdditions)
+@interface NSString (URLEncoding)
 
 - (NSString *)URLEncodedString;
 - (NSString *)URLDecodedString;
