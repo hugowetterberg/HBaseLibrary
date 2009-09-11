@@ -7,10 +7,23 @@
 //
 
 #import "AuthorizationManager.h"
+#import "NSString+URLEncoding.h"
+
+static AuthorizationManager *sharedManager = nil;
 
 @implementation AuthorizationManager
 
 @synthesize consumer, requestToken, accessToken, delegates, requestTokenEndpoint, accessTokenEndpoint, authorizationUrlPattern;
+
++ (AuthorizationManager *)sharedManager {
+    return sharedManager;
+}
+
++ (void)setSharedManager:(AuthorizationManager *)manager {
+    [sharedManager release];
+    sharedManager = [manager retain];
+}
+
 
 -(id)initWithConsumer:(OAConsumer *)consumerObject baseUrl:(NSURL *)baseUrl {
     NSString *absoluteBase = [baseUrl absoluteString];

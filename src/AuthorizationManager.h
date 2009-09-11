@@ -31,6 +31,9 @@
 @property (retain) NSString *accessTokenEndpoint;
 @property (retain) NSString *authorizationUrlPattern;
 
++ (AuthorizationManager *) sharedManager;
++ (void) setSharedManager:(AuthorizationManager *)sharedManager;
+
 -(id)initWithConsumer:(OAConsumer *)consumerObject baseUrl:(NSURL *)baseUrl;
 -(id)initWithConsumer:(OAConsumer *)consumerObject requestEndpoint:(NSString *)reqEndpoint accessEndpoint:(NSString *)accEndpoint authorizationUrlPattern:(NSString *)authUrlPattern;
 -(void)resetAuthorization;
