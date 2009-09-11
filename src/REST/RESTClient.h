@@ -22,7 +22,11 @@
 -(id)init;
 -(NSString *)queryStringFromDictionary:(NSDictionary *)dictionary;
 -(NSDictionary *)getResource:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil returningResponse:(NSURLResponse **)response error:(NSError **)error;
+// TODO: Maybe the async request object should be returned, so that the request could be cancelled
 -(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
+-(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil bodyObject:(id)bodyObject target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
+-(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil bodyData:(NSData *)bodyData target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
+
 -(id)parseJSONData:(NSData *)data;
 
 @end

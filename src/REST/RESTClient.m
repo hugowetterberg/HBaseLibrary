@@ -43,6 +43,10 @@
 }
 
 -(NSDictionary *)getResource:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil returningResponse:(NSURLResponse **)response error:(NSError **)error {
+    if ([delegate respondsToSelector:@selector(RESTClient:alterParameters:url:method:)]) {
+        dictionaryOrNil = [[dictionaryOrNil mutableCopy] autorelease];
+        [delegate RESTClient:self alterParameters:(NSMutableDictionary *)dictionaryOrNil url:resourceUrl method:method];
+    }
     NSURL *url = [[[NSURL alloc] initWithString:[NSString 
                                                 stringWithFormat:@"%@%@",
                                                 [resourceUrl absoluteURL],
@@ -52,7 +56,7 @@
     if (responseData == nil) {
         NSURLRequest *query;
         if ([delegate respondsToSelector:@selector(RESTClient:getRequestForUrl:method:)]) {
-            query = [delegate RESTClient:self getRequestForUrl:url method:method];        
+            query = [delegate RESTClient:self getRequestForUrl:url method:method body:nil];        
         }
         else {
             query = [[NSURLRequest alloc] initWithURL:url];
@@ -76,9 +80,9 @@
 
 -(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil {
     // Alter the parameters if the delegate supports it
-    if ([delegate respondsToSelector:@selector(RESTClient:alterParamters:)]) {
+    if ([delegate respondsToSelector:@selector(RESTClient:alterParameters:url:method:)]) {
         dictionaryOrNil = [[dictionaryOrNil mutableCopy] autorelease];
-        [delegate RESTClient:self alterParamters:(NSMutableDictionary *)dictionaryOrNil];
+        [delegate RESTClient:self alterParameters:(NSMutableDictionary *)dictionaryOrNil url:resourceUrl method:method];
     }
 
     NSURL *url = [[[NSURL alloc] initWithString:[NSString 
@@ -91,7 +95,7 @@
         NSURLRequest *query;
         // Prepare a custom NSURLRequest if the delegate supports it
         if ([delegate respondsToSelector:@selector(RESTClient:getRequestForUrl:method:)]) {
-            query = [delegate RESTClient:self getRequestForUrl:url method:method];        
+            query = [delegate RESTClient:self getRequestForUrl:url method:method body:nil];      
         }
         else {
             query = [[[NSURLRequest alloc] initWithURL:url] autorelease];
@@ -108,7 +112,41 @@
                                withObject:[self parseJSONData:cached]];
         }
     }
+}
 
+-(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil bodyObject:(id)bodyObject target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil {
+    NSData *bodyData = nil;
+    if (bodyObject) {
+        NSString *json = [bodyObject JSONRepresentation];
+        bodyData = [json dataUsingEncoding:NSUTF8StringEncoding];
+    }
+    [self getResourceAsync:resourceUrl method:method parameters:dictionaryOrNil bodyData:bodyData target:aTargetOrNil selector:aSelectorOrNil failSelector:aFailSelectorOrNil];
+}
+
+-(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil bodyData:(NSData *)bodyData target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil {
+    // Alter the parameters if the delegate supports it
+    if ([delegate respondsToSelector:@selector(RESTClient:alterParameters:url:method:)]) {
+        dictionaryOrNil = [[dictionaryOrNil mutableCopy] autorelease];
+        [delegate RESTClient:self alterParameters:(NSMutableDictionary *)dictionaryOrNil url:resourceUrl method:method];
+    }
+    
+    NSURL *url = [[[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@%@",
+                                                 [resourceUrl absoluteURL],
+                                                 [self queryStringFromDictionary:dictionaryOrNil]]] autorelease];
+    NSMutableURLRequest *query;
+    // Prepare a custom NSURLRequest if the delegate supports it
+    if ([delegate respondsToSelector:@selector(RESTClient:getRequestForUrl:method:)]) {
+        query = [delegate RESTClient:self getRequestForUrl:url method:method body:bodyData];        
+    }
+    else {
+        query = [[[NSMutableURLRequest alloc] initWithURL:url] autorelease];
+        [query setHTTPMethod:method];
+        [query setHTTPBody:bodyData];
+    }
+    
+    RESTClientAsyncRequest *asyncRequest = [[RESTClientAsyncRequest alloc] initWithRequest:query target:aTargetOrNil selector:aSelectorOrNil failSelector:aFailSelectorOrNil delegate:self];
+    [activeRequests addObject:asyncRequest];
+    [asyncRequest release];
 }
 
 -(void)asyncRequestFinished:(RESTClientAsyncRequest *)request {

@@ -19,13 +19,14 @@
     return self;
 }
 
--(NSURLRequest *)RESTClient:(id)client getRequestForUrl:(NSURL *)url method:(NSString *)method {
+-(NSURLRequest *)RESTClient:(id)client getRequestForUrl:(NSURL *)url method:(NSString *)method body:(NSData *)bodyOrNil {
     OAMutableURLRequest *request = [[[OAMutableURLRequest alloc] initWithURL:url
                                                              consumer:authManager.consumer
                                                                 token:authManager.accessToken 
                                                                 realm:nil 
                                                     signatureProvider:nil] autorelease];
     [request setHTTPMethod:method];
+    [request setHTTPBody:bodyOrNil];
     [request prepare];
     return request;
 }
