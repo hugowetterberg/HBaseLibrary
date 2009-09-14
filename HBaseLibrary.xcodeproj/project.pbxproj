@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* HBaseLibrary_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* HBaseLibrary_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		AF189584105E16A800D26022 /* RESTClientRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AF189582105E16A800D26022 /* RESTClientRequest.h */; };
+		AF189585105E16A800D26022 /* RESTClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF189583105E16A800D26022 /* RESTClientRequest.m */; };
 		AF2DCEB31043432C00995821 /* HSimpleURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */; };
 		AF2DCEB41043432C00995821 /* HURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAD1043432C00995821 /* HURLCache.h */; };
 		AF2DCEB51043432C00995821 /* HURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEAE1043432C00995821 /* HURLCache.m */; };
@@ -18,8 +20,7 @@
 		AF2DCEB91043432C00995821 /* HURLMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEB21043432C00995821 /* HURLMemoryCache.m */; };
 		AF2DCEBE1043437100995821 /* entities.c in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEBA1043437100995821 /* entities.c */; };
 		AF2DCEBF1043437100995821 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEBB1043437100995821 /* entities.h */; };
-		AF2DCEC01043437100995821 /* HTMLDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEBC1043437100995821 /* HTMLDecode.h */; };
-		AF2DCEC11043437100995821 /* HTMLDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEBD1043437100995821 /* HTMLDecode.m */; };
+		AF2DCEC11043437100995821 /* NSString+HTMLDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEBD1043437100995821 /* NSString+HTMLDecode.m */; };
 		AF2DCEC41043439200995821 /* AuthorizationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEC21043439200995821 /* AuthorizationManager.h */; };
 		AF2DCEC51043439200995821 /* AuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEC31043439200995821 /* AuthorizationManager.m */; };
 		AF4724FC1031E928002CA462 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4724FB1031E928002CA462 /* UIKit.framework */; };
@@ -83,11 +84,19 @@
 		AF7A5F04103035DE001BCFC9 /* RESTClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5EC4103035DE001BCFC9 /* RESTClientDelegate.h */; };
 		AFA3F1581056C4B600721131 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA3F1561056C4B600721131 /* NSString+MD5.h */; };
 		AFA3F1591056C4B600721131 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA3F1571056C4B600721131 /* NSString+MD5.m */; };
+		AFDA90C0105EA0A50042ED21 /* RESTClientAsyncRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */; };
+		AFDA90C1105EA0A50042ED21 /* RESTClientAsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */; };
+		AFDA90C4105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90C2105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h */; };
+		AFDA90C9105EC0C20042ED21 /* NSString+HTMLDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90C8105EC0C20042ED21 /* NSString+HTMLDecode.h */; };
+		AFDA90E4105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90E2105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h */; };
+		AFDA90E5105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDA90E3105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA747D9E0F9514B9006C5449 /* HBaseLibrary_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseLibrary_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AF189582105E16A800D26022 /* RESTClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientRequest.h; sourceTree = "<group>"; };
+		AF189583105E16A800D26022 /* RESTClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClientRequest.m; sourceTree = "<group>"; };
 		AF2DCE4E103F125A00995821 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; wrapsLines = 1; };
 		AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSimpleURLCache.h; sourceTree = "<group>"; };
 		AF2DCEAD1043432C00995821 /* HURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLCache.h; sourceTree = "<group>"; };
@@ -98,8 +107,7 @@
 		AF2DCEB21043432C00995821 /* HURLMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLMemoryCache.m; sourceTree = "<group>"; };
 		AF2DCEBA1043437100995821 /* entities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entities.c; path = src/entities.c; sourceTree = "<group>"; };
 		AF2DCEBB1043437100995821 /* entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = entities.h; path = src/entities.h; sourceTree = "<group>"; };
-		AF2DCEBC1043437100995821 /* HTMLDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMLDecode.h; path = src/HTMLDecode.h; sourceTree = "<group>"; };
-		AF2DCEBD1043437100995821 /* HTMLDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMLDecode.m; path = src/HTMLDecode.m; sourceTree = "<group>"; };
+		AF2DCEBD1043437100995821 /* NSString+HTMLDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTMLDecode.m"; path = "src/NSString+HTMLDecode.m"; sourceTree = "<group>"; };
 		AF2DCEC21043439200995821 /* AuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizationManager.h; path = src/AuthorizationManager.h; sourceTree = SOURCE_ROOT; };
 		AF2DCEC31043439200995821 /* AuthorizationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizationManager.m; path = src/AuthorizationManager.m; sourceTree = SOURCE_ROOT; };
 		AF2DCED8104345C800995821 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; wrapsLines = 1; };
@@ -164,6 +172,12 @@
 		AF7A5EC4103035DE001BCFC9 /* RESTClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientDelegate.h; sourceTree = "<group>"; };
 		AFA3F1561056C4B600721131 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "src/NSString+MD5.h"; sourceTree = "<group>"; };
 		AFA3F1571056C4B600721131 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "src/NSString+MD5.m"; sourceTree = "<group>"; };
+		AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientAsyncRequest.h; sourceTree = "<group>"; };
+		AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClientAsyncRequest.m; sourceTree = "<group>"; };
+		AFDA90C2105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientAsyncRequestDelegate.h; sourceTree = "<group>"; };
+		AFDA90C8105EC0C20042ED21 /* NSString+HTMLDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTMLDecode.h"; path = "src/NSString+HTMLDecode.h"; sourceTree = "<group>"; };
+		AFDA90E2105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+HTTPParameters.h"; sourceTree = "<group>"; };
+		AFDA90E3105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+HTTPParameters.m"; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libHBaseLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHBaseLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -261,8 +275,8 @@
 			children = (
 				AF2DCEBA1043437100995821 /* entities.c */,
 				AF2DCEBB1043437100995821 /* entities.h */,
-				AF2DCEBC1043437100995821 /* HTMLDecode.h */,
-				AF2DCEBD1043437100995821 /* HTMLDecode.m */,
+				AFDA90C8105EC0C20042ED21 /* NSString+HTMLDecode.h */,
+				AF2DCEBD1043437100995821 /* NSString+HTMLDecode.m */,
 				AFA3F1561056C4B600721131 /* NSString+MD5.h */,
 				AFA3F1571056C4B600721131 /* NSString+MD5.m */,
 			);
@@ -363,6 +377,13 @@
 				AF7A5EC2103035DE001BCFC9 /* RESTClient.h */,
 				AF7A5EC3103035DE001BCFC9 /* RESTClient.m */,
 				AF7A5EC4103035DE001BCFC9 /* RESTClientDelegate.h */,
+				AF189582105E16A800D26022 /* RESTClientRequest.h */,
+				AF189583105E16A800D26022 /* RESTClientRequest.m */,
+				AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */,
+				AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */,
+				AFDA90C2105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h */,
+				AFDA90E2105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h */,
+				AFDA90E3105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m */,
 			);
 			name = REST;
 			path = src/REST;
@@ -412,9 +433,13 @@
 				AF2DCEB61043432C00995821 /* HURLFileCache.h in Headers */,
 				AF2DCEB81043432C00995821 /* HURLMemoryCache.h in Headers */,
 				AF2DCEBF1043437100995821 /* entities.h in Headers */,
-				AF2DCEC01043437100995821 /* HTMLDecode.h in Headers */,
 				AF2DCEC41043439200995821 /* AuthorizationManager.h in Headers */,
 				AFA3F1581056C4B600721131 /* NSString+MD5.h in Headers */,
+				AF189584105E16A800D26022 /* RESTClientRequest.h in Headers */,
+				AFDA90C0105EA0A50042ED21 /* RESTClientAsyncRequest.h in Headers */,
+				AFDA90C4105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h in Headers */,
+				AFDA90C9105EC0C20042ED21 /* NSString+HTMLDecode.h in Headers */,
+				AFDA90E4105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,9 +516,12 @@
 				AF2DCEB71043432C00995821 /* HURLFileCache.m in Sources */,
 				AF2DCEB91043432C00995821 /* HURLMemoryCache.m in Sources */,
 				AF2DCEBE1043437100995821 /* entities.c in Sources */,
-				AF2DCEC11043437100995821 /* HTMLDecode.m in Sources */,
+				AF2DCEC11043437100995821 /* NSString+HTMLDecode.m in Sources */,
 				AF2DCEC51043439200995821 /* AuthorizationManager.m in Sources */,
 				AFA3F1591056C4B600721131 /* NSString+MD5.m in Sources */,
+				AF189585105E16A800D26022 /* RESTClientRequest.m in Sources */,
+				AFDA90C1105EA0A50042ED21 /* RESTClientAsyncRequest.m in Sources */,
+				AFDA90E5105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

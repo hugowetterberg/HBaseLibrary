@@ -12,6 +12,6 @@
 @protocol RESTClientDelegate <NSObject>
 
 @optional
--(void)RESTClient:(RESTClient *)client alterParameters:(NSMutableDictionary *)parameters url:(NSURL *)resourceUrl method:(NSString *)method;
--(NSMutableURLRequest *)RESTClient:(RESTClient *)client getRequestForUrl:(NSURL *)url method:(NSString *)method body:(NSData *)bodyOrNil;
+-(void)RESTClient:(RESTClient *)client alterRESTRequest:(RESTClientRequest *)request;
+-(NSMutableURLRequest *)RESTClient:(RESTClient *)client getURLRequestFor:(RESTClientRequest *)request;
 @end

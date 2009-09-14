@@ -6,13 +6,13 @@
 //  Copyright 2009 Hugo Wetterberg. All rights reserved.
 //
 
-#import "HTMLDecode.h"
+#import "NSString+HTMLDecode.h"
 #import "entities.h"
 
-@implementation HTMLDecode
+@implementation NSString (HTMLDecode)
 
-+ (NSString *)string:(NSString *)string {
-    const char *source = [string UTF8String];
+- (NSString *)HTMLDecode {
+    const char *source = [self UTF8String];
     char buffer[strlen(source)+1];
     decode_html_entities_utf8(buffer, source);
     NSString *decoded = [NSString stringWithUTF8String:buffer];

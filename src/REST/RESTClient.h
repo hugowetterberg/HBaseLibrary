@@ -9,45 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "AuthorizationManager.h"
+#import "RESTClientRequest.h"
 
 @protocol RESTClientDelegate;
+@protocol RESTClientAsyncRequestDelegate;
 
-@interface RESTClient : NSObject {
+@interface RESTClient : NSObject<RESTClientAsyncRequestDelegate> {
     NSMutableSet *activeRequests;
-    id <RESTClientDelegate> delegate;
+    id<RESTClientDelegate> delegate;
 }
 
 @property (retain) id <RESTClientDelegate> delegate;
 
 -(id)init;
--(NSString *)queryStringFromDictionary:(NSDictionary *)dictionary;
--(NSDictionary *)getResource:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil returningResponse:(NSURLResponse **)response error:(NSError **)error;
-// TODO: Maybe the async request object should be returned, so that the request could be cancelled
--(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
--(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil bodyObject:(id)bodyObject target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
--(void)getResourceAsync:(NSURL *)resourceUrl method:(NSString *)method parameters:(NSDictionary *)dictionaryOrNil bodyData:(NSData *)bodyData target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
-
--(id)parseJSONData:(NSData *)data;
+-(NSDictionary *)performRequest:(RESTClientRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
+-(void)performRequestAsync:(RESTClientRequest *)request target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
 
 @end
-
-@interface RESTClientAsyncRequest : NSObject
-{
-    id delegate;
-    id target;
-    SEL selector;
-    SEL failSelector;
-    NSMutableData *data;
-    NSURLRequest *request;
-    NSURLConnection *connection;
-}
-
--(id)initWithRequest:(NSURLRequest *)request target:(id)targetOrNil selector:(SEL)selectorOrNil failSelector:(SEL)failSelectorOrNil delegate:(id)aDelegate;
-
-@property (readonly) id target;
-@property (readonly) SEL selector;
-@property (readonly) SEL failSelector;
-@property (readonly) NSMutableData *data;
-
-@end
-

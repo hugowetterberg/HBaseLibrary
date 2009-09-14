@@ -7,6 +7,7 @@
 //
 
 #import "OAuthRESTClientDelegate.h"
+#import "RESTClientRequest.h"
 
 @implementation OAuthRESTClientDelegate
 
@@ -19,16 +20,16 @@
     return self;
 }
 
--(NSURLRequest *)RESTClient:(id)client getRequestForUrl:(NSURL *)url method:(NSString *)method body:(NSData *)bodyOrNil {
-    OAMutableURLRequest *request = [[[OAMutableURLRequest alloc] initWithURL:url
-                                                             consumer:authManager.consumer
-                                                                token:authManager.accessToken 
-                                                                realm:nil 
-                                                    signatureProvider:nil] autorelease];
-    [request setHTTPMethod:method];
-    [request setHTTPBody:bodyOrNil];
-    [request prepare];
-    return request;
+-(NSMutableURLRequest *)RESTClient:(RESTClient *)client getURLRequestFor:(RESTClientRequest *)request {
+    OAMutableURLRequest *ureq = [[[OAMutableURLRequest alloc] initWithURL:[request fullUrl]
+                                                                 consumer:authManager.consumer
+                                                                    token:authManager.accessToken 
+                                                                    realm:nil 
+                                                        signatureProvider:nil] autorelease];
+    [ureq setHTTPMethod:request.method];
+    [ureq setHTTPBody:request.body];
+    [ureq prepare];
+    return ureq;
 }
 
 @end

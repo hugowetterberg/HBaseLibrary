@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-@interface HTMLDecode : NSObject
+@interface NSString (HTMLDecode)
 
-+ (NSString *)string:(NSString *)string;
+- (NSString *)HTMLDecode;
 
 @end
