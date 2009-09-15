@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol RESTClientAsyncRequestDelegate;
-
 @interface RESTClientAsyncRequest : NSObject
 {
-    id<RESTClientAsyncRequestDelegate> delegate;
+    id delegate;
     id target;
     SEL selector;
     SEL failSelector;
@@ -21,7 +19,7 @@
     NSURLConnection *connection;
 }
 
--(id)initWithRequest:(NSURLRequest *)request target:(id)targetOrNil selector:(SEL)selectorOrNil failSelector:(SEL)failSelectorOrNil delegate:(id<RESTClientAsyncRequestDelegate>)aDelegate;
+-(id)initWithRequest:(NSURLRequest *)request target:(id)targetOrNil selector:(SEL)selectorOrNil failSelector:(SEL)failSelectorOrNil delegate:(id)aDelegate;
 
 @property (readonly) id target;
 @property (readonly) SEL selector;

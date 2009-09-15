@@ -15,8 +15,9 @@
 
 - (id)initWithUrl:(NSURL *)aUrl method:(NSString *)aMethod {
     if (self = [super init]) {
-        self.url = aUrl;
-        self.method = aMethod;
+        self.url = [aUrl retain];
+        self.method = [aMethod retain];
+        self.parameters = [[[NSMutableDictionary alloc] init] autorelease];
     }
     return self;
 }

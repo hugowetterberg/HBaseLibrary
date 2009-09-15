@@ -7,7 +7,6 @@
 //
 
 #import "RESTClientAsyncRequest.h"
-#import "RESTClientAsyncRequestDelegate.h"
 #import "SBJSON.h"
 #import "HURLCache.h"
 

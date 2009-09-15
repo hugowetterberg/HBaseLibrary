@@ -8,7 +8,6 @@
 
 #import "RESTClient.h"
 #import "RESTClientDelegate.h"
-#import "RESTClientAsyncRequest.h"
 #import "JSON.h"
 #import "HURLCache.h"
 #import "NSString+URLEncoding.h"

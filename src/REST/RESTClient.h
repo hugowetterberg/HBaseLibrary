@@ -10,11 +10,12 @@
 #import <UIKit/UIKit.h>
 #import "AuthorizationManager.h"
 #import "RESTClientRequest.h"
+#import "RESTClientAsyncRequest.h"
 
 @protocol RESTClientDelegate;
 @protocol RESTClientAsyncRequestDelegate;
 
-@interface RESTClient : NSObject<RESTClientAsyncRequestDelegate> {
+@interface RESTClient : NSObject {
     NSMutableSet *activeRequests;
     id<RESTClientDelegate> delegate;
 }
@@ -24,5 +25,6 @@
 -(id)init;
 -(NSDictionary *)performRequest:(RESTClientRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
 -(void)performRequestAsync:(RESTClientRequest *)request target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
+-(void)RESTClientAsyncRequestFinished:(RESTClientAsyncRequest *)request;
 
 @end

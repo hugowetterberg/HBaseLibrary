@@ -86,7 +86,6 @@
 		AFA3F1591056C4B600721131 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA3F1571056C4B600721131 /* NSString+MD5.m */; };
 		AFDA90C0105EA0A50042ED21 /* RESTClientAsyncRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */; };
 		AFDA90C1105EA0A50042ED21 /* RESTClientAsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */; };
-		AFDA90C4105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90C2105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h */; };
 		AFDA90C9105EC0C20042ED21 /* NSString+HTMLDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90C8105EC0C20042ED21 /* NSString+HTMLDecode.h */; };
 		AFDA90E4105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90E2105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h */; };
 		AFDA90E5105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDA90E3105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m */; };
@@ -174,7 +173,6 @@
 		AFA3F1571056C4B600721131 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "src/NSString+MD5.m"; sourceTree = "<group>"; };
 		AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientAsyncRequest.h; sourceTree = "<group>"; };
 		AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClientAsyncRequest.m; sourceTree = "<group>"; };
-		AFDA90C2105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientAsyncRequestDelegate.h; sourceTree = "<group>"; };
 		AFDA90C8105EC0C20042ED21 /* NSString+HTMLDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTMLDecode.h"; path = "src/NSString+HTMLDecode.h"; sourceTree = "<group>"; };
 		AFDA90E2105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+HTTPParameters.h"; sourceTree = "<group>"; };
 		AFDA90E3105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+HTTPParameters.m"; sourceTree = "<group>"; };
@@ -381,7 +379,6 @@
 				AF189583105E16A800D26022 /* RESTClientRequest.m */,
 				AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */,
 				AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */,
-				AFDA90C2105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h */,
 				AFDA90E2105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h */,
 				AFDA90E3105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m */,
 			);
@@ -437,7 +434,6 @@
 				AFA3F1581056C4B600721131 /* NSString+MD5.h in Headers */,
 				AF189584105E16A800D26022 /* RESTClientRequest.h in Headers */,
 				AFDA90C0105EA0A50042ED21 /* RESTClientAsyncRequest.h in Headers */,
-				AFDA90C4105EBD260042ED21 /* RESTClientAsyncRequestDelegate.h in Headers */,
 				AFDA90C9105EC0C20042ED21 /* NSString+HTMLDecode.h in Headers */,
 				AFDA90E4105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h in Headers */,
 			);
