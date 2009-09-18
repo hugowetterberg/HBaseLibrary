@@ -13,6 +13,7 @@
 @interface AsyncImageLoader (Private)
 
 - (UIImage *)getIfCached:(NSURL *)aUrl;
+- (void)serveImageUsingResize:(UIImage *)img;
 
 @end
 
@@ -46,17 +47,18 @@
     if (targetSize.width > 0.0) {
         resizedUrl = [[NSURL URLWithString:[NSString stringWithFormat:@"#%fx%f", targetSize.width, targetSize.height] 
                       relativeToURL:aUrl] retain];
+        NSLog(@"Looking for cached resized image %@", [resizedUrl absoluteString]);
         img = [self getIfCached:resizedUrl];
     }
-    else {
-        resizedUrl = nil;
+
+    if (!img) {
+        NSLog(@"Looking for cached original image %@", [url absoluteString]);
         img = [self getIfCached:url];
     }
     
     if (img) { // Pass on the image to the delegate if it was in the cache
-        if ([delegate respondsToSelector:@selector(asyncImageLoader:imageDidLoad:)]) {
-            [delegate asyncImageLoader:self imageDidLoad:img];
-        }
+        NSLog(@"Image was in cache");
+        [self serveImageUsingResize:img];
     }
     else { // Otherwise we'll just have to load it
         request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -87,18 +89,28 @@
     [connection release];
     connection = nil;
     
+    NSLog(@"Cached original image %@", [url absoluteString]);
     [[HCache sharedCache] storeData:data forKey:[url absoluteString]];
     
     //make an image view for the image
     UIImage *img = [UIImage imageWithData:data];
     if (img) {
-        // Resize if requested and if a resize is needed (we don't do upscaling)
-        if (targetSize.width && (targetSize.width < img.size.width || targetSize.height < img.size.height)) {
-            img = [AsyncImageLoader resizeImage:img toFillFrame:targetSize];
-            [[HCache sharedCache] storeData:UIImageJPEGRepresentation(img, 0.6) forKey:[url absoluteString]];
-        }
-        [delegate asyncImageLoader:self imageDidLoad:img];
+        [self serveImageUsingResize:img];
     }
+}
+
+- (void)serveImageUsingResize:(UIImage *)img {
+    // Resize if requested and if a resize is needed (we don't do upscaling)
+    if (targetSize.width > 0.0 && (targetSize.width < img.size.width || targetSize.height < img.size.height)) {
+        img = [AsyncImageLoader resizeImage:img toFillFrame:targetSize];
+        NSLog(@"Cached resized image %@", [resizedUrl absoluteString]);
+        NSData *png = UIImagePNGRepresentation(img);
+        if (png) {
+            NSLog(@"Size of cached image: %d", [png length]);
+            [[HCache sharedCache] storeData:png forKey:[resizedUrl absoluteString]];
+        }
+    }
+    [delegate asyncImageLoader:self imageDidLoad:img];
 }
 
 + (UIImage *)resizeImage:(UIImage *)image toFillFrame:(CGSize)frame {
