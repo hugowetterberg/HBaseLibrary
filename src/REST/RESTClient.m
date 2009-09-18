@@ -44,6 +44,9 @@
         NSLog(@"Checking if %@ exists in cache", [request cacheKey]);
         NSTimeInterval age = 0;
         responseData = [[HCache sharedCache] getDataForKey:[request cacheKey] age:&age];
+        if (responseData) {
+            NSLog(@"The data was cached and is %f seconds old", age);
+        }
         if (responseData && age > request.cachePolicy.maxAge) {
             if (!request.cachePolicy.serveStale) {
                 responseData = nil;
@@ -102,6 +105,9 @@
     BOOL refresh = NO;
     if (request.cachePolicy.useCache && [request.method isEqual:@"GET"]) {
         cached = [[HCache sharedCache] getDataForKey:[request cacheKey] age:&age];
+        if (cached) {
+            NSLog(@"The data was cached and is %f seconds old", age);
+        }
         if (cached && age > request.cachePolicy.maxAge) {
             if (!request.cachePolicy.serveStale) {
                 cached = nil;
