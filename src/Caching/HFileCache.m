@@ -76,7 +76,7 @@
             if (age) {
                 NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
                 NSDate *modified = [attr objectForKey:NSFileModificationDate];
-                *age = [modified timeIntervalSinceNow];
+                *age = -[modified timeIntervalSinceNow];
             }
             
             cached = [NSData dataWithContentsOfFile:filePath];
@@ -97,7 +97,7 @@
         if (age) {
             NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
             NSDate *modified = [attr objectForKey:NSFileModificationDate];
-            *age = [modified timeIntervalSinceNow];
+            *age = -[modified timeIntervalSinceNow];
         }
         
         cached = [UIImage imageWithContentsOfFile:filePath];
