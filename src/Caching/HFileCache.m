@@ -43,25 +43,27 @@
 }
 
 - (void)storeData:(NSData *)data forKey:(NSString *)key {
-    [memoryCache storeData:data forKey:key];
-    NSString *filePath = [self pathForKey:key];
-    
-    NSLog(@"Storing %@ in file cache", key);
-    
-    // Delete the cached data if it exists
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSError *error = nil;
-        if (![[NSFileManager defaultManager] removeItemAtPath:filePath error:&error]) {
-            NSLog(@"Error when removing cache file %@: %@", filePath, error);
+    if (key && data) {
+        [memoryCache storeData:data forKey:key];
+        NSString *filePath = [self pathForKey:key];
+        
+        NSLog(@"Storing %@ in file cache", key);
+        
+        // Delete the cached data if it exists
+        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            NSError *error = nil;
+            if (![[NSFileManager defaultManager] removeItemAtPath:filePath error:&error]) {
+                NSLog(@"Error when removing cache file %@: %@", filePath, error);
+            }
         }
-    }
-    
-    // Write data to file
-    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        if (![[NSFileManager defaultManager] createFileAtPath:filePath 
-                                                     contents:data 
-                                                   attributes:nil]) {
-            NSLog(@"Error when creating cache file %@", filePath);
+        
+        // Write data to file
+        if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            if (![[NSFileManager defaultManager] createFileAtPath:filePath 
+                                                         contents:data 
+                                                       attributes:nil]) {
+                NSLog(@"Error when creating cache file %@", filePath);
+            }
         }
     }
 }
