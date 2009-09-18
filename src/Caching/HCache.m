@@ -1,22 +1,22 @@
 //
-//  HURLCache.m
+//  HCache.m
 //  HBaseLibrary
 //
 //  Created by Hugo Wetterberg on 2009-08-10.
 //  Copyright 2009 Hugo Wetterberg. All rights reserved.
 //
 
-#import "HURLCache.h"
+#import "HCache.h"
 
-static id<HSimpleURLCache> sharedCache = nil;
+static id<HSimpleCache> sharedCache = nil;
 
-@implementation HURLCache
+@implementation HCache
 
-+ (id<HSimpleURLCache>)sharedCache {
++ (id<HSimpleCache>)sharedCache {
     return sharedCache;
 }
 
-+ (void)setSharedCache:(id<HSimpleURLCache>)cache {
++ (void)setSharedCache:(id<HSimpleCache>)cache {
     [sharedCache release];
     sharedCache = [cache retain];
 }

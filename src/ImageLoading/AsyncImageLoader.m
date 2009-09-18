@@ -7,7 +7,7 @@
 //
 
 #import "AsyncImageLoader.h"
-#import "HURLCache.h"
+#import "HCache.h"
 #import "AsyncImageLoaderDelegate.h"
 
 @interface AsyncImageLoader (Private)
@@ -34,7 +34,6 @@
 }
 
 - (void)loadImageFromURL:(NSURL*)aUrl targetSize:(CGSize)aTargetSize {
-    NSLog(@"Load requested for %fx%f of %@", aTargetSize.width, aTargetSize.height, aUrl);
     [connection cancel];
     [connection release];
     connection = nil;
@@ -47,7 +46,6 @@
     if (targetSize.width > 0.0) {
         resizedUrl = [[NSURL URLWithString:[NSString stringWithFormat:@"#%fx%f", targetSize.width, targetSize.height] 
                       relativeToURL:aUrl] retain];
-        NSLog(@"%@", [resizedUrl absoluteString]);
         img = [self getIfCached:resizedUrl];
     }
     else {
@@ -56,20 +54,18 @@
     }
     
     if (img) { // Pass on the image to the delegate if it was in the cache
-        NSLog(@"Async image loader cache hit for %@", url);
         if ([delegate respondsToSelector:@selector(asyncImageLoader:imageDidLoad:)]) {
             [delegate asyncImageLoader:self imageDidLoad:img];
         }
     }
     else { // Otherwise we'll just have to load it
-        NSLog(@"Started async loading of %@", url);
         request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
         connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     }
 }
 
 - (UIImage *)getIfCached:(NSURL *)aUrl {
-    return [[HURLCache sharedCache] getImageForUrl:aUrl];
+    return [[HCache sharedCache] getImageForKey:[aUrl absoluteString] age:nil];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)urlResponse {
@@ -87,12 +83,11 @@
 
 //the URL connection calls this once all the data has downloaded
 - (void)connectionDidFinishLoading:(NSURLConnection*)theConnection {
-    NSLog(@"Async loading of %@ finished", url);
     //so self data now has the complete image
     [connection release];
     connection = nil;
     
-    [[HURLCache sharedCache] storeData:data forUrl:url];
+    [[HCache sharedCache] storeData:data forKey:[url absoluteString]];
     
     //make an image view for the image
     UIImage *img = [UIImage imageWithData:data];
@@ -100,7 +95,7 @@
         // Resize if requested and if a resize is needed (we don't do upscaling)
         if (targetSize.width && (targetSize.width < img.size.width || targetSize.height < img.size.height)) {
             img = [AsyncImageLoader resizeImage:img toFillFrame:targetSize];
-            [[HURLCache sharedCache] storeData:UIImageJPEGRepresentation(img, 0.6) forUrl:resizedUrl];
+            [[HCache sharedCache] storeData:UIImageJPEGRepresentation(img, 0.6) forKey:[url absoluteString]];
         }
         [delegate asyncImageLoader:self imageDidLoad:img];
     }

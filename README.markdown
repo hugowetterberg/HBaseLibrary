@@ -19,7 +19,7 @@ The _HTMLDecode_ class provides a class method +string: that can be used to deco
 Caching
 -----------------------------
 
-There are two implemented cache types that implement the _HSimpleURLCache_ protocol: _HURLMemoryCache_ and _HURLFileCache_. These two can be used separately or in conjunction to store results from http requests. In my app I nested the memory cache in a file cache and only let the memory cache handle result data up to a size 20kB and a total of 500kB. The rest was only stored in the file cache.
+There are two implemented cache types that implement the _HSimpleCache_ protocol: _HMemoryCache_ and _HFileCache_. These two can be used separately or in conjunction to store results from http requests. In my app I nested the memory cache in a file cache and only let the memory cache handle result data up to a size 20kB and a total of 500kB. The rest was only stored in the file cache.
 
 Invalidation functions like max age et.c. are not implemented. The only invalidation is through -empty or -applicationDidReceiveMemoryWarning. A memory warning results in a -empty for the memory cache.
 

@@ -1,5 +1,5 @@
 //
-//  HURLMemoryCache.h
+//  HMemoryCache.h
 //  HBaseLibrary
 //
 //  Created by Hugo Wetterberg on 2009-08-10.
@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HSimpleURLCache.h"
+#import "HSimpleCache.h"
 
-@interface HURLMemoryCache : NSObject <HSimpleURLCache> {
+@interface HMemoryCache : NSObject <HSimpleCache> {
     int memLimit;
     int cacheableLimit;
     int usedMemory;

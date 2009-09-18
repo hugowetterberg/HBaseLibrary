@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RESTClientCachePolicy.h"
 
 @interface RESTClientRequest : NSObject {
     BOOL forceRefresh;
@@ -14,6 +15,7 @@
     NSString *method;
     NSMutableDictionary *parameters;
     NSData *body;
+    RESTClientCachePolicy *cachePolicy;
 }
 
 @property (assign) BOOL forceRefresh;
@@ -21,8 +23,12 @@
 @property (retain, nonatomic) NSString *method;
 @property (retain, nonatomic) NSMutableDictionary *parameters;
 @property (retain, nonatomic) NSData *body;
+@property (retain, nonatomic) RESTClientCachePolicy *cachePolicy;
 
+
++ (void)setDefaultCachePolicy:(RESTClientCachePolicy *)cachePolicy;
 - (id)initWithUrl:(NSURL *)aUrl method:(NSString *)aMethod;
 - (NSURL *)fullUrl;
+- (NSString *)cacheKey;
 
 @end

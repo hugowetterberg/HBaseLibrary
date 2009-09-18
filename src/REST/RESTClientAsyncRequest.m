@@ -8,19 +8,20 @@
 
 #import "RESTClientAsyncRequest.h"
 #import "SBJSON.h"
-#import "HURLCache.h"
+#import "HCache.h"
 
 @implementation RESTClientAsyncRequest
 
-@synthesize target, selector, data, failSelector;
+@synthesize target, selector, data, failSelector, restRequest;
 
-- (id)initWithRequest:(NSURLRequest *)aRequest target:(id)targetOrNil selector:(SEL)selectorOrNil failSelector:(SEL)failSelectorOrNil delegate:(id)aDelegate {
+- (id)initWithRequest:(NSURLRequest *)aRequest restRequest:(RESTClientRequest *)aRESTRequest target:(id)targetOrNil selector:(SEL)selectorOrNil failSelector:(SEL)failSelectorOrNil delegate:(id)aDelegate {
     if (self = [super init]) {
         target = [targetOrNil retain];
         selector = selectorOrNil;
         failSelector = failSelectorOrNil;
         delegate = [aDelegate retain];
         request = [aRequest retain];
+        restRequest = [aRESTRequest retain];
         
         data = [[NSMutableData alloc] initWithCapacity:2048];
         connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -46,13 +47,21 @@
     //NSLog(@"%@", responseBody);
     NSDictionary *parsedData = (NSDictionary *)[parser objectWithString:responseBody];
     
-    [[HURLCache sharedCache] storeData:data forUrl:[request URL]];
+    if (restRequest.cachePolicy.useCache) {
+        NSString *cacheKey = restRequest.cachePolicy.cacheKey;
+        if (!cacheKey) {
+            cacheKey = [[restRequest fullUrl] absoluteString];
+        }
+        [[HCache sharedCache] storeData:data forKey:cacheKey];
+    }
     [target performSelector:selector withObject:self withObject:parsedData];
     
     [responseBody release];
     [parser release];
     
-    [delegate RESTClientAsyncRequestFinished:self];
+    if ([delegate respondsToSelector:@selector(RESTClientAsyncRequestFinished:)]) {
+        [delegate performSelector:@selector(RESTClientAsyncRequestFinished:) withObject:self];
+    }
 }
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -65,6 +74,7 @@
     [data release];
     [connection release];
     [request release];
+    [restRequest release];
     [super dealloc];
 }
 

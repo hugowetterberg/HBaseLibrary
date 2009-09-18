@@ -9,15 +9,23 @@
 #import "RESTClientRequest.h"
 #import "NSMutableDictionary+HTTPParameters.h"
 
+static RESTClientCachePolicy *defaultCachePolicy = nil;
+
 @implementation RESTClientRequest
 
-@synthesize forceRefresh, url, method, parameters, body;
+@synthesize forceRefresh, url, method, parameters, body, cachePolicy;
+
++ (void)setDefaultCachePolicy:(RESTClientCachePolicy *)cachePolicy {
+    [defaultCachePolicy release];
+    defaultCachePolicy = [cachePolicy retain];
+}
 
 - (id)initWithUrl:(NSURL *)aUrl method:(NSString *)aMethod {
     if (self = [super init]) {
         self.url = aUrl;
         self.method = aMethod;
         self.parameters = [[[NSMutableDictionary alloc] init] autorelease];
+        self.cachePolicy = [defaultCachePolicy copy];
     }
     return self;
 }
@@ -35,6 +43,14 @@
     }
     
     return fullUrl;
+}
+
+- (NSString *)cacheKey {
+    NSString *cacheKey = self.cachePolicy.cacheKey;
+    if (!cacheKey) {
+        cacheKey = [url absoluteString];
+    }
+    return cacheKey;
 }
 
 @end

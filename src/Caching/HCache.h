@@ -1,5 +1,5 @@
 //
-//  HURLCache.h
+//  HCache.h
 //  HBaseLibrary
 //
 //  Created by Hugo Wetterberg on 2009-08-10.
@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HSimpleURLCache.h"
+#import "HSimpleCache.h"
 
-@interface HURLCache : NSObject {
+@interface HCache : NSObject {
 
 }
 
-+ (id<HSimpleURLCache>) sharedCache;
-+ (void) setSharedCache:(id<HSimpleURLCache>)cache;
++ (id<HSimpleCache>) sharedCache;
++ (void) setSharedCache:(id<HSimpleCache>)cache;
 
 @end

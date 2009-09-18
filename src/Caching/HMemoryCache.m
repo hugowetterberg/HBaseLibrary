@@ -1,45 +1,40 @@
 //
-//  HURLMemoryCache.m
+//  HMemoryCache.m
 //  HBaseLibrary
 //
 //  Created by Hugo Wetterberg on 2009-08-10.
 //  Copyright 2009 Hugo Wetterberg. All rights reserved.
 //
 
-#import "HURLMemoryCache.h"
+#import "HMemoryCache.h"
 
 @interface HACachedData : NSObject {
-    NSDate *accessed;
+    NSDate *created;
     NSData *data;
     NSString *key;
 }
 
-@property (retain) NSDate *accessed;
+@property (retain) NSDate *created;
 @property (readonly) NSString *key;
 @property (readonly) NSData *data;
 
 - (id)initWithKey:(NSString *)theKey andData:(NSData *)theData;
-- (NSComparisonResult)accessedCompareDesc:(HACachedData *)other;
 
 @end
 
 
 @implementation HACachedData
 
-@synthesize accessed, data, key;
+@synthesize created, data, key;
 
 - (id)initWithKey:(NSString *)theKey andData:(NSData *)theData {
     self = [super init];
     if (self) {
         key = [theKey retain];
         data = [theData retain];
-        self.accessed = [NSDate date];
+        self.created = [NSDate date];
     }
     return self;
-}
-
-- (NSComparisonResult)accessedCompareDesc:(HACachedData *)other {
-    return [other.accessed compare:accessed];
 }
 
 - (void)dealloc {
@@ -51,7 +46,7 @@
 @end
 
 
-@implementation HURLMemoryCache
+@implementation HMemoryCache
 
 - (id)initWithMemoryLimit:(int)memoryLimit maxCacheableSize:(int)maxCacheable {
     self = [self init];
@@ -67,10 +62,10 @@
     return self;
 }
 
-- (void)storeData:(NSData *)data forUrl:(NSURL *)url {
+- (void)storeData:(NSData *)data forKey:(NSString *)key {
     if ([data length] < cacheableLimit) {
         NSLog(@"Small enough to cache");
-        HACachedData *cached = [[[HACachedData alloc] initWithKey:[url absoluteString] andData:data] autorelease];
+        HACachedData *cached = [[[HACachedData alloc] initWithKey:key andData:data] autorelease];
         usedMemory += [data length];
         
         [cache setObject:cached forKey:cached.key];
@@ -92,23 +87,27 @@
     }
 }
 
-- (NSData *)getDataForUrl:(NSURL *)url {
-    HACachedData *cached = [cache objectForKey:[url absoluteString]];
-    cached.accessed = [NSDate date];
+- (NSData *)getDataForKey:(NSString *)key age:(NSTimeInterval *)age {
+    HACachedData *cached = [cache objectForKey:key];
+    if (cached) {
+        NSLog(@"Cache hit for %@ in memory cache", key);
+        *age = [cached.created timeIntervalSinceNow];
+    }
     return cached.data;
 }
 
-- (UIImage *)getImageForUrl:(NSURL *)url {
-    NSData *cachedData = [self getDataForUrl:url];
+- (UIImage *)getImageForKey:(NSString *)key age:(NSTimeInterval *)age {
+    NSData *cachedData = [self getDataForKey:key age:age];
     UIImage *image = nil;
     if (cachedData != nil) {
+        NSLog(@"Cache hit for %@ in memory cache", key);
         image = [UIImage imageWithData:cachedData];
     }
     return image;
 }
 
-- (void)invalidateUrl:(NSURL *)url {
-    [cache removeObjectForKey:[url absoluteString]];
+- (void)invalidateKey:(NSString *)key {
+    [cache removeObjectForKey:key];
 }
 
 - (void)empty {

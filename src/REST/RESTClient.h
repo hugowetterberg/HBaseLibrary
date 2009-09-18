@@ -11,6 +11,7 @@
 #import "AuthorizationManager.h"
 #import "RESTClientRequest.h"
 #import "RESTClientAsyncRequest.h"
+#import "RESTClientCachePolicy.h"
 
 @protocol RESTClientDelegate;
 @protocol RESTClientAsyncRequestDelegate;
@@ -23,6 +24,7 @@
 @property (retain) id <RESTClientDelegate> delegate;
 
 -(id)init;
+
 -(NSDictionary *)performRequest:(RESTClientRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
 -(void)performRequestAsync:(RESTClientRequest *)request target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
 -(void)RESTClientAsyncRequestFinished:(RESTClientAsyncRequest *)request;

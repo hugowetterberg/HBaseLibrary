@@ -11,13 +11,13 @@
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		AF189584105E16A800D26022 /* RESTClientRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AF189582105E16A800D26022 /* RESTClientRequest.h */; };
 		AF189585105E16A800D26022 /* RESTClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF189583105E16A800D26022 /* RESTClientRequest.m */; };
-		AF2DCEB31043432C00995821 /* HSimpleURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */; };
-		AF2DCEB41043432C00995821 /* HURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAD1043432C00995821 /* HURLCache.h */; };
-		AF2DCEB51043432C00995821 /* HURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEAE1043432C00995821 /* HURLCache.m */; };
-		AF2DCEB61043432C00995821 /* HURLFileCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAF1043432C00995821 /* HURLFileCache.h */; };
-		AF2DCEB71043432C00995821 /* HURLFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEB01043432C00995821 /* HURLFileCache.m */; };
-		AF2DCEB81043432C00995821 /* HURLMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEB11043432C00995821 /* HURLMemoryCache.h */; };
-		AF2DCEB91043432C00995821 /* HURLMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEB21043432C00995821 /* HURLMemoryCache.m */; };
+		AF2DCEB31043432C00995821 /* HSimpleCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAC1043432C00995821 /* HSimpleCache.h */; };
+		AF2DCEB41043432C00995821 /* HCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAD1043432C00995821 /* HCache.h */; };
+		AF2DCEB51043432C00995821 /* HCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEAE1043432C00995821 /* HCache.m */; };
+		AF2DCEB61043432C00995821 /* HFileCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAF1043432C00995821 /* HFileCache.h */; };
+		AF2DCEB71043432C00995821 /* HFileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEB01043432C00995821 /* HFileCache.m */; };
+		AF2DCEB81043432C00995821 /* HMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEB11043432C00995821 /* HMemoryCache.h */; };
+		AF2DCEB91043432C00995821 /* HMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEB21043432C00995821 /* HMemoryCache.m */; };
 		AF2DCEBE1043437100995821 /* entities.c in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEBA1043437100995821 /* entities.c */; };
 		AF2DCEBF1043437100995821 /* entities.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEBB1043437100995821 /* entities.h */; };
 		AF2DCEC11043437100995821 /* NSString+HTMLDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2DCEBD1043437100995821 /* NSString+HTMLDecode.m */; };
@@ -82,6 +82,8 @@
 		AF7A5F02103035DE001BCFC9 /* RESTClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5EC2103035DE001BCFC9 /* RESTClient.h */; };
 		AF7A5F03103035DE001BCFC9 /* RESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7A5EC3103035DE001BCFC9 /* RESTClient.m */; };
 		AF7A5F04103035DE001BCFC9 /* RESTClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7A5EC4103035DE001BCFC9 /* RESTClientDelegate.h */; };
+		AFA204A61062158F008404D4 /* RESTClientCachePolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA204A41062158F008404D4 /* RESTClientCachePolicy.h */; };
+		AFA204A71062158F008404D4 /* RESTClientCachePolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA204A51062158F008404D4 /* RESTClientCachePolicy.m */; };
 		AFA3F1581056C4B600721131 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA3F1561056C4B600721131 /* NSString+MD5.h */; };
 		AFA3F1591056C4B600721131 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA3F1571056C4B600721131 /* NSString+MD5.m */; };
 		AFDA90C0105EA0A50042ED21 /* RESTClientAsyncRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */; };
@@ -97,13 +99,13 @@
 		AF189582105E16A800D26022 /* RESTClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientRequest.h; sourceTree = "<group>"; };
 		AF189583105E16A800D26022 /* RESTClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClientRequest.m; sourceTree = "<group>"; };
 		AF2DCE4E103F125A00995821 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; wrapsLines = 1; };
-		AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSimpleURLCache.h; sourceTree = "<group>"; };
-		AF2DCEAD1043432C00995821 /* HURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLCache.h; sourceTree = "<group>"; };
-		AF2DCEAE1043432C00995821 /* HURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLCache.m; sourceTree = "<group>"; };
-		AF2DCEAF1043432C00995821 /* HURLFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLFileCache.h; sourceTree = "<group>"; };
-		AF2DCEB01043432C00995821 /* HURLFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLFileCache.m; sourceTree = "<group>"; };
-		AF2DCEB11043432C00995821 /* HURLMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HURLMemoryCache.h; sourceTree = "<group>"; };
-		AF2DCEB21043432C00995821 /* HURLMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HURLMemoryCache.m; sourceTree = "<group>"; };
+		AF2DCEAC1043432C00995821 /* HSimpleCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSimpleCache.h; sourceTree = "<group>"; };
+		AF2DCEAD1043432C00995821 /* HCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCache.h; sourceTree = "<group>"; };
+		AF2DCEAE1043432C00995821 /* HCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCache.m; sourceTree = "<group>"; };
+		AF2DCEAF1043432C00995821 /* HFileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFileCache.h; sourceTree = "<group>"; };
+		AF2DCEB01043432C00995821 /* HFileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFileCache.m; sourceTree = "<group>"; };
+		AF2DCEB11043432C00995821 /* HMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMemoryCache.h; sourceTree = "<group>"; };
+		AF2DCEB21043432C00995821 /* HMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMemoryCache.m; sourceTree = "<group>"; };
 		AF2DCEBA1043437100995821 /* entities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entities.c; path = src/entities.c; sourceTree = "<group>"; };
 		AF2DCEBB1043437100995821 /* entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = entities.h; path = src/entities.h; sourceTree = "<group>"; };
 		AF2DCEBD1043437100995821 /* NSString+HTMLDecode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTMLDecode.m"; path = "src/NSString+HTMLDecode.m"; sourceTree = "<group>"; };
@@ -169,6 +171,8 @@
 		AF7A5EC2103035DE001BCFC9 /* RESTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClient.h; sourceTree = "<group>"; };
 		AF7A5EC3103035DE001BCFC9 /* RESTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClient.m; sourceTree = "<group>"; };
 		AF7A5EC4103035DE001BCFC9 /* RESTClientDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientDelegate.h; sourceTree = "<group>"; };
+		AFA204A41062158F008404D4 /* RESTClientCachePolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientCachePolicy.h; sourceTree = "<group>"; };
+		AFA204A51062158F008404D4 /* RESTClientCachePolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClientCachePolicy.m; sourceTree = "<group>"; };
 		AFA3F1561056C4B600721131 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "src/NSString+MD5.h"; sourceTree = "<group>"; };
 		AFA3F1571056C4B600721131 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "src/NSString+MD5.m"; sourceTree = "<group>"; };
 		AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientAsyncRequest.h; sourceTree = "<group>"; };
@@ -256,13 +260,13 @@
 		AF2DCEAB1043432C00995821 /* Caching */ = {
 			isa = PBXGroup;
 			children = (
-				AF2DCEAC1043432C00995821 /* HSimpleURLCache.h */,
-				AF2DCEAD1043432C00995821 /* HURLCache.h */,
-				AF2DCEAE1043432C00995821 /* HURLCache.m */,
-				AF2DCEAF1043432C00995821 /* HURLFileCache.h */,
-				AF2DCEB01043432C00995821 /* HURLFileCache.m */,
-				AF2DCEB11043432C00995821 /* HURLMemoryCache.h */,
-				AF2DCEB21043432C00995821 /* HURLMemoryCache.m */,
+				AF2DCEAC1043432C00995821 /* HSimpleCache.h */,
+				AF2DCEAD1043432C00995821 /* HCache.h */,
+				AF2DCEAE1043432C00995821 /* HCache.m */,
+				AF2DCEAF1043432C00995821 /* HFileCache.h */,
+				AF2DCEB01043432C00995821 /* HFileCache.m */,
+				AF2DCEB11043432C00995821 /* HMemoryCache.h */,
+				AF2DCEB21043432C00995821 /* HMemoryCache.m */,
 			);
 			name = Caching;
 			path = src/Caching;
@@ -381,6 +385,8 @@
 				AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */,
 				AFDA90E2105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h */,
 				AFDA90E3105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m */,
+				AFA204A41062158F008404D4 /* RESTClientCachePolicy.h */,
+				AFA204A51062158F008404D4 /* RESTClientCachePolicy.m */,
 			);
 			name = REST;
 			path = src/REST;
@@ -425,10 +431,10 @@
 				AF7A5F00103035DE001BCFC9 /* OAuthRESTClientDelegate.h in Headers */,
 				AF7A5F02103035DE001BCFC9 /* RESTClient.h in Headers */,
 				AF7A5F04103035DE001BCFC9 /* RESTClientDelegate.h in Headers */,
-				AF2DCEB31043432C00995821 /* HSimpleURLCache.h in Headers */,
-				AF2DCEB41043432C00995821 /* HURLCache.h in Headers */,
-				AF2DCEB61043432C00995821 /* HURLFileCache.h in Headers */,
-				AF2DCEB81043432C00995821 /* HURLMemoryCache.h in Headers */,
+				AF2DCEB31043432C00995821 /* HSimpleCache.h in Headers */,
+				AF2DCEB41043432C00995821 /* HCache.h in Headers */,
+				AF2DCEB61043432C00995821 /* HFileCache.h in Headers */,
+				AF2DCEB81043432C00995821 /* HMemoryCache.h in Headers */,
 				AF2DCEBF1043437100995821 /* entities.h in Headers */,
 				AF2DCEC41043439200995821 /* AuthorizationManager.h in Headers */,
 				AFA3F1581056C4B600721131 /* NSString+MD5.h in Headers */,
@@ -436,6 +442,7 @@
 				AFDA90C0105EA0A50042ED21 /* RESTClientAsyncRequest.h in Headers */,
 				AFDA90C9105EC0C20042ED21 /* NSString+HTMLDecode.h in Headers */,
 				AFDA90E4105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h in Headers */,
+				AFA204A61062158F008404D4 /* RESTClientCachePolicy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,9 +515,9 @@
 				AF7A5EFE103035DE001BCFC9 /* OAToken.m in Sources */,
 				AF7A5F01103035DE001BCFC9 /* OAuthRESTClientDelegate.m in Sources */,
 				AF7A5F03103035DE001BCFC9 /* RESTClient.m in Sources */,
-				AF2DCEB51043432C00995821 /* HURLCache.m in Sources */,
-				AF2DCEB71043432C00995821 /* HURLFileCache.m in Sources */,
-				AF2DCEB91043432C00995821 /* HURLMemoryCache.m in Sources */,
+				AF2DCEB51043432C00995821 /* HCache.m in Sources */,
+				AF2DCEB71043432C00995821 /* HFileCache.m in Sources */,
+				AF2DCEB91043432C00995821 /* HMemoryCache.m in Sources */,
 				AF2DCEBE1043437100995821 /* entities.c in Sources */,
 				AF2DCEC11043437100995821 /* NSString+HTMLDecode.m in Sources */,
 				AF2DCEC51043439200995821 /* AuthorizationManager.m in Sources */,
@@ -518,6 +525,7 @@
 				AF189585105E16A800D26022 /* RESTClientRequest.m in Sources */,
 				AFDA90C1105EA0A50042ED21 /* RESTClientAsyncRequest.m in Sources */,
 				AFDA90E5105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m in Sources */,
+				AFA204A71062158F008404D4 /* RESTClientCachePolicy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

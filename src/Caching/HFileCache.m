@@ -1,38 +1,27 @@
 //
-//  HURLCache.m
+//  HCache.m
 //  HBaseLibrary
 //
 //  Created by Hugo Wetterberg on 2009-08-10.
 //  Copyright 2009 Hugo Wetterberg. All rights reserved.
 //
 
-#import "HURLFileCache.h"
+#import "HFileCache.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "NSString+MD5.h"
 
-@implementation HURLFileCache
-
-+(NSString *)md5:(NSString *)str {
-	const char *cStr = [str UTF8String];
-	unsigned char result[16];
-	CC_MD5( cStr, strlen(cStr), result );
-	return [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-            result[0], result[1], result[2], result[3], 
-            result[4], result[5], result[6], result[7],
-            result[8], result[9], result[10], result[11],
-            result[12], result[13], result[14], result[15]
-            ];	
-}
+@implementation HFileCache
 
 - (id)init {
     return [self initWithMemoryCache:nil];
 }
 
-- (id)initWithMemoryCache:(id<HSimpleURLCache>)memoryCacheOrNil {
+- (id)initWithMemoryCache:(id<HSimpleCache>)memoryCacheOrNil {
     self = [super init];
     if (self) {
         memoryCache = [memoryCacheOrNil retain];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        cachePath = [[[paths objectAtIndex:0] stringByAppendingPathComponent:@"HURLCache"] retain];
+        cachePath = [[[paths objectAtIndex:0] stringByAppendingPathComponent:@"HCache"] retain];
         
         // Create the directory if it doesn't exist
         if (![[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
@@ -43,13 +32,21 @@
                 self = nil;
             }
         }
+        
+        // Delete the old directory if it exists
+        NSString *oldCachePath = [[[paths objectAtIndex:0] stringByAppendingPathComponent:@"HURLCache"] retain];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:oldCachePath]) {
+            [[NSFileManager defaultManager] removeItemAtPath:oldCachePath error:nil];
+        }
     }
     return self;
 }
 
-- (void)storeData:(NSData *)data forUrl:(NSURL *)url {
-    [memoryCache storeData:data forUrl:url];
-    NSString *filePath = [self pathForUrl:url];
+- (void)storeData:(NSData *)data forKey:(NSString *)key {
+    [memoryCache storeData:data forKey:key];
+    NSString *filePath = [self pathForKey:key];
+    
+    NSLog(@"Storing %@ in file cache", key);
     
     // Delete the cached data if it exists
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
@@ -66,36 +63,51 @@
                                                    attributes:nil]) {
             NSLog(@"Error when creating cache file %@", filePath);
         }
-    }    
+    }
 }
 
-- (NSData *)getDataForUrl:(NSURL *)url {
-    NSData *cached = [memoryCache getDataForUrl:url];
+- (NSData *)getDataForKey:(NSString *)key age:(NSTimeInterval *)age {
+    NSData *cached = [memoryCache getDataForKey:key age:age];
     if (cached == nil) {
-        NSString *filePath = [self pathForUrl:url];
+        NSString *filePath = [self pathForKey:key];
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+            // Get the age of the file
+            if (age) {
+                NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+                NSDate *modified = [attr objectForKey:NSFileModificationDate];
+                *age = [modified timeIntervalSinceNow];
+            }
+            
             cached = [NSData dataWithContentsOfFile:filePath];
             if (cached) {
-                [memoryCache storeData:cached forUrl:url];
+                NSLog(@"Cache hit for %@ in file cache", key);
+                [memoryCache storeData:cached forKey:key];
             }
         }
     }
     return cached;
 }
 
-- (UIImage *)getImageForUrl:(NSURL *)url {
+- (UIImage *)getImageForKey:(NSString *)key age:(NSTimeInterval *)age {
     UIImage *cached = nil;
-    NSString *filePath = [self pathForUrl:url];        
+    NSString *filePath = [self pathForKey:key];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        // Get the age of the file
+        if (age) {
+            NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+            NSDate *modified = [attr objectForKey:NSFileModificationDate];
+            *age = [modified timeIntervalSinceNow];
+        }
+        
         cached = [UIImage imageWithContentsOfFile:filePath];
     }
     return cached;
 }
 
-- (void)invalidateUrl:(NSURL *)url {
-    [memoryCache invalidateUrl:url];
-    NSString *filePath = [self pathForUrl:url];
+- (void)invalidateKey:(NSString *)key {
+    [memoryCache invalidateKey:key];
+    NSString *filePath = [self pathForKey:key];
     if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
     }
@@ -116,9 +128,8 @@
     [super dealloc];
 }
 
-- (NSString *)pathForUrl:(NSURL *)url {
-    NSString *keyMD5 = [HURLFileCache md5:[url absoluteString]];
-    return [cachePath stringByAppendingPathComponent:keyMD5];
+- (NSString *)pathForKey:(NSString *)key {
+    return [cachePath stringByAppendingPathComponent:[key MD5]];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {

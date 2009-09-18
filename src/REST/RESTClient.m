@@ -9,7 +9,7 @@
 #import "RESTClient.h"
 #import "RESTClientDelegate.h"
 #import "JSON.h"
-#import "HURLCache.h"
+#import "HCache.h"
 #import "NSString+URLEncoding.h"
 
 @interface RESTClient (Private) 
@@ -36,9 +36,24 @@
         [delegate RESTClient:self alterRESTRequest:request];
     }
 
-    NSURL *url = [request fullUrl];
-    NSLog(@"Getting %@", [url absoluteString]);
-    NSData *responseData = [[HURLCache sharedCache] getDataForUrl:url];
+    NSLog(@"Getting %@ (%@)", [request cacheKey], [request fullUrl]);
+    
+    NSData *responseData = nil;
+    // Check of we have a cached version
+    if (request.cachePolicy.useCache && [request.method isEqual:@"GET"]) {
+        NSLog(@"Checking if %@ exists in cache", [request cacheKey]);
+        NSTimeInterval age = 0;
+        responseData = [[HCache sharedCache] getDataForKey:[request cacheKey] age:&age];
+        if (responseData && age > request.cachePolicy.maxAge) {
+            if (!request.cachePolicy.serveStale) {
+                responseData = nil;
+            }
+            else {
+                [self performRequestAsync:request target:nil selector:nil failSelector:nil];
+            }
+        }
+    }
+    
     if (responseData == nil) {
         NSMutableURLRequest *query;
         // Prepare a custom NSURLRequest if the delegate supports it
@@ -46,19 +61,20 @@
             query = [delegate RESTClient:self getURLRequestFor:request];
         }
         else {
-            query = [[[NSMutableURLRequest alloc] initWithURL:url] autorelease];
+            query = [[[NSMutableURLRequest alloc] initWithURL:[request fullUrl]] autorelease];
             [query setHTTPMethod:request.method];
             [query setHTTPBody:request.body];
         }
-	
-        responseData = [NSURLConnection sendSynchronousRequest:query 
-                                             returningResponse:response error:error];
+        
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:query 
+                                                     returningResponse:response error:error];
         if (*error) {
-             NSLog(@"Error: %@", [*error localizedDescription]);
+            NSLog(@"Error: %@", [*error localizedDescription]);
         }
-        else {
-            [[HURLCache sharedCache] storeData:responseData forUrl:url];
+        else if (request.cachePolicy.useCache) {
+            [[HCache sharedCache] storeData:responseData forKey:[request cacheKey]];
         }
+        
     }
     return [self parseJSONData:responseData];
 }
@@ -78,26 +94,49 @@
         [delegate RESTClient:self alterRESTRequest:request];
     }
     
-    NSURL *url = [request fullUrl];
-    NSLog(@"Getting %@", [url absoluteString]);
-    NSData *cached = [[HURLCache sharedCache] getDataForUrl:url];
-    if (cached == nil) {
+    NSLog(@"Getting %@ (%@)", [request cacheKey], [request fullUrl]);
+    NSTimeInterval age = 0;
+    NSData *cached = nil;
+    
+    BOOL refresh = NO;
+    if (request.cachePolicy.useCache && [request.method isEqual:@"GET"]) {
+        cached = [[HCache sharedCache] getDataForKey:[request cacheKey] age:&age];
+        if (cached && age > request.cachePolicy.maxAge) {
+            if (!request.cachePolicy.serveStale) {
+                cached = nil;
+            }
+            else {
+                refresh = YES;
+            }
+        }
+    }
+    
+    if (cached == nil || refresh) {
         NSMutableURLRequest *query;
         // Prepare a custom NSURLRequest if the delegate supports it
         if ([delegate respondsToSelector:@selector(RESTClient:getURLRequestFor:)]) {
             query = [delegate RESTClient:self getURLRequestFor:request];
         }
         else {
-            query = [[[NSMutableURLRequest alloc] initWithURL:url] autorelease];
+            query = [[[NSMutableURLRequest alloc] initWithURL:[request fullUrl]] autorelease];
             [query setHTTPMethod:request.method];
             [query setHTTPBody:request.body];
         }
         
-        RESTClientAsyncRequest *asyncRequest = [[RESTClientAsyncRequest alloc] initWithRequest:query target:aTargetOrNil selector:aSelectorOrNil failSelector:aFailSelectorOrNil delegate:self];
+        RESTClientAsyncRequest *asyncRequest = nil;
+        if (refresh) {
+            // If this is a refresh, don't tell the sender when we're done, they'll recieve the cached data instead
+            asyncRequest = [[RESTClientAsyncRequest alloc] initWithRequest:query restRequest:request target:nil selector:nil failSelector:nil delegate:self];
+        }
+        else {
+            asyncRequest = [[RESTClientAsyncRequest alloc] initWithRequest:query restRequest:request target:aTargetOrNil selector:aSelectorOrNil failSelector:aFailSelectorOrNil delegate:self];
+        }
+
         [activeRequests addObject:asyncRequest];
         [asyncRequest release];
     }
-    else {
+    
+    if (cached != nil) {
         if ([aTargetOrNil respondsToSelector:aSelectorOrNil]) {
             [aTargetOrNil performSelector:aSelectorOrNil
                                withObject:nil
