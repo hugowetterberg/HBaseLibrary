@@ -66,12 +66,12 @@
             [query setHTTPBody:request.body];
         }
         
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:query 
-                                                     returningResponse:response error:error];
+        responseData = [NSURLConnection sendSynchronousRequest:query 
+                                             returningResponse:response error:error];
         if (*error) {
             NSLog(@"Error: %@", [*error localizedDescription]);
         }
-        else if (request.cachePolicy.useCache) {
+        else if (request.cachePolicy.useCache && [request.method isEqual:@"GET"]) {
             [[HCache sharedCache] storeData:responseData forKey:[request cacheKey]];
         }
         
@@ -80,12 +80,13 @@
 }
 
 - (id)parseJSONData:(NSData *)data {
-    NSString *responseBody = [[[NSString alloc] initWithData:data
-                                                    encoding:NSUTF8StringEncoding] autorelease];
-    
+    NSString *responseBody = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
     SBJsonParser *parser = [[[SBJsonParser alloc] init] autorelease];
-    
-    return [parser objectWithString:responseBody];
+    id response = [parser objectWithString:responseBody];
+    if (!response) {
+        NSLog(@"The response might not've been valid JSON:\n%@", responseBody);
+    }
+    return response;
 }
 
 -(void)performRequestAsync:(RESTClientRequest *)request target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil {
