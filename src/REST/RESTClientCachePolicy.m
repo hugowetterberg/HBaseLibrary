@@ -32,7 +32,7 @@
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    RESTClientCachePolicy *copy = [[RESTClientCachePolicy alloc] initWithUseCache:useCache maxAge:maxAge serveStale:serveStale];
+    RESTClientCachePolicy *copy = [[RESTClientCachePolicy allocWithZone:zone] initWithUseCache:useCache maxAge:maxAge serveStale:serveStale];
     copy.cacheKey = cacheKey;
     return copy;
 }
