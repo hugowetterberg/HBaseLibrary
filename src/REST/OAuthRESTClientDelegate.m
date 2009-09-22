@@ -20,6 +20,11 @@
     return self;
 }
 
+- (void)dealloc {
+    [authManager release];
+    [super dealloc];
+}
+
 -(NSMutableURLRequest *)RESTClient:(RESTClient *)client getURLRequestFor:(RESTClientRequest *)request {
     OAMutableURLRequest *ureq = [[[OAMutableURLRequest alloc] initWithURL:[request fullUrl]
                                                                  consumer:authManager.consumer

@@ -30,6 +30,16 @@ static RESTClientCachePolicy *defaultCachePolicy = nil;
     return self;
 }
 
+- (void)dealloc {
+    self.url = nil;
+    self.method = nil;
+    self.parameters = nil;
+    self.cachePolicy = nil;
+    self.body = nil;
+    
+    [super dealloc];
+}
+
 - (NSURL *)fullUrl {
     NSURL *fullUrl;
     

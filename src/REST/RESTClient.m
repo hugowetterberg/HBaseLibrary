@@ -158,6 +158,8 @@
 
 -(void)dealloc {
     [activeRequests release];
+    self.delegate = nil;
+    
     [super dealloc];
 }
 

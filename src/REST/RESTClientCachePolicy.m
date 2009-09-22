@@ -25,6 +25,12 @@
     return self;
 }
 
+- (void)dealloc {
+    self.cacheKey = nil;
+    
+    [super dealloc];
+}
+
 - (id)copyWithZone:(NSZone *)zone {
     RESTClientCachePolicy *copy = [[RESTClientCachePolicy alloc] initWithUseCache:useCache maxAge:maxAge serveStale:serveStale];
     copy.cacheKey = cacheKey;
