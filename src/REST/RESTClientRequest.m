@@ -25,7 +25,7 @@ static RESTClientCachePolicy *defaultCachePolicy = nil;
         self.url = aUrl;
         self.method = aMethod;
         self.parameters = [[[NSMutableDictionary alloc] init] autorelease];
-        self.cachePolicy = [defaultCachePolicy copy];
+        self.cachePolicy = [[defaultCachePolicy copy] autorelease];
     }
     return self;
 }
