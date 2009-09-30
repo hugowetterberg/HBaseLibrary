@@ -65,7 +65,9 @@
 }
 
 -(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [target performSelector:failSelector withObject:self withObject:error];
+    if ([target respondsToSelector:failSelector]) {
+        [target performSelector:failSelector withObject:self withObject:error];
+    }
 }
 
 -(void)dealloc {
