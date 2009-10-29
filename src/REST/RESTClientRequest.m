@@ -65,4 +65,10 @@ static RESTClientCachePolicy *defaultCachePolicy = nil;
     return cacheKey;
 }
 
+- (void)setJSONBody:(id)object {
+	NSString *bodyString = [object JSONRepresentation];
+	self.body = [bodyString dataUsingEncoding:NSUTF8StringEncoding];
+	[self.headers setValue:@"application/json" forKey:@"Content-type"];
+}
+
 @end
