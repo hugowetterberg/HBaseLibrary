@@ -12,7 +12,9 @@
 #import "HCache.h"
 #import "NSString+URLEncoding.h"
 
-@interface RESTClient (Private) 
+static RESTClient *sharedClient = nil;
+
+@interface RESTClient (Private)
 
 -(id)parseJSONData:(NSData *)data;
 
@@ -21,6 +23,15 @@
 @implementation RESTClient
 
 @synthesize delegate;
+
++ (RESTClient *)sharedClient {
+	return sharedClient;
+}
+
++ (void)setSharedClient:(RESTClient *)aSharedClient {
+	[sharedClient release];
+	sharedClient = [aSharedClient retain];
+}
 
 -(id)init {
     self = [super init];

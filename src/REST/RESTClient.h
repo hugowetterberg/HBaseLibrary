@@ -23,6 +23,9 @@
 
 @property (retain) id <RESTClientDelegate> delegate;
 
++ (RESTClient *) sharedClient;
++ (void) setSharedClient:(RESTClient *)sharedClient;
+
 -(id)init;
 
 -(NSDictionary *)performRequest:(RESTClientRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
