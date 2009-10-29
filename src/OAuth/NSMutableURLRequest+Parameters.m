@@ -30,7 +30,7 @@
 
 - (NSArray *)parameters 
 {
-    NSString *encodedParameters;
+    NSString *encodedParameters = nil;
 	BOOL shouldfree = NO;
     
     if ([[self HTTPMethod] isEqualToString:@"GET"] || [[self HTTPMethod] isEqualToString:@"DELETE"]) 
@@ -38,8 +38,13 @@
 	else 
 	{
         // POST, PUT
-		shouldfree = YES;
-        encodedParameters = [[NSString alloc] initWithData:[self HTTPBody] encoding:NSASCIIStringEncoding];
+		// The body should only be included if the content type
+		// is application/x-www-form-urlencoded
+		NSString *contentType = [self valueForHTTPHeaderField:@"Content-type"];
+		if (!contentType || [contentType isEqualToString:@"application/x-www-form-urlencoded"]) {
+			shouldfree = YES;
+			encodedParameters = [[NSString alloc] initWithData:[self HTTPBody] encoding:NSASCIIStringEncoding];
+		}
     }
     
     if ((encodedParameters == nil) || ([encodedParameters isEqualToString:@""]))
