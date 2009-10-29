@@ -8,12 +8,13 @@
 
 #import "RESTClientRequest.h"
 #import "NSMutableDictionary+HTTPParameters.h"
+#import "JSON.h"
 
 static RESTClientCachePolicy *defaultCachePolicy = nil;
 
 @implementation RESTClientRequest
 
-@synthesize forceRefresh, url, method, parameters, body, cachePolicy;
+@synthesize forceRefresh, url, method, parameters, headers, body, cachePolicy;
 
 + (void)setDefaultCachePolicy:(RESTClientCachePolicy *)cachePolicy {
     [defaultCachePolicy release];
@@ -25,6 +26,7 @@ static RESTClientCachePolicy *defaultCachePolicy = nil;
         self.url = aUrl;
         self.method = aMethod;
         self.parameters = [[[NSMutableDictionary alloc] init] autorelease];
+		self.headers = [[[NSMutableDictionary alloc] init] autorelease];
         self.cachePolicy = [[defaultCachePolicy copy] autorelease];
     }
     return self;

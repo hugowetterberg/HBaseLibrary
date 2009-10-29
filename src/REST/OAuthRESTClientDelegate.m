@@ -33,6 +33,9 @@
                                                         signatureProvider:nil] autorelease];
     [ureq setHTTPMethod:request.method];
     [ureq setHTTPBody:request.body];
+	for (NSString *header in request.headers) {
+		[ureq setValue:[request.headers objectForKey:header] forHTTPHeaderField:header];
+	}
     [ureq prepare];
     return ureq;
 }

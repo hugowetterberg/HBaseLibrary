@@ -14,6 +14,7 @@
     NSURL *url;
     NSString *method;
     NSMutableDictionary *parameters;
+	NSMutableDictionary *headers;
     NSData *body;
     RESTClientCachePolicy *cachePolicy;
 }
@@ -22,6 +23,7 @@
 @property (retain, nonatomic) NSURL *url;
 @property (retain, nonatomic) NSString *method;
 @property (retain, nonatomic) NSMutableDictionary *parameters;
+@property (retain, nonatomic) NSMutableDictionary *headers;
 @property (retain, nonatomic) NSData *body;
 @property (retain, nonatomic) RESTClientCachePolicy *cachePolicy;
 
@@ -30,5 +32,6 @@
 - (id)initWithUrl:(NSURL *)aUrl method:(NSString *)aMethod;
 - (NSURL *)fullUrl;
 - (NSString *)cacheKey;
+- (void)setJSONBody:(id)object;
 
 @end

@@ -128,6 +128,9 @@
             query = [[[NSMutableURLRequest alloc] initWithURL:[request fullUrl]] autorelease];
             [query setHTTPMethod:request.method];
             [query setHTTPBody:request.body];
+			for (NSString *header in request.headers) {
+				[query setValue:[request.headers objectForKey:header] forHTTPHeaderField:header];
+			}
         }
         
         RESTClientAsyncRequest *asyncRequest = nil;
