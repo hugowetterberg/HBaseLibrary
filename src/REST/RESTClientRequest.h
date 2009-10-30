@@ -17,6 +17,7 @@
 	NSMutableDictionary *headers;
     NSData *body;
     RESTClientCachePolicy *cachePolicy;
+	id infoObject;
 }
 
 @property (assign) BOOL forceRefresh;
@@ -26,6 +27,7 @@
 @property (retain, nonatomic) NSMutableDictionary *headers;
 @property (retain, nonatomic) NSData *body;
 @property (retain, nonatomic) RESTClientCachePolicy *cachePolicy;
+@property (retain, nonatomic) id infoObject;
 
 
 + (void)setDefaultCachePolicy:(RESTClientCachePolicy *)cachePolicy;

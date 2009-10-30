@@ -14,7 +14,7 @@ static RESTClientCachePolicy *defaultCachePolicy = nil;
 
 @implementation RESTClientRequest
 
-@synthesize forceRefresh, url, method, parameters, headers, body, cachePolicy;
+@synthesize forceRefresh, url, method, parameters, headers, body, cachePolicy, infoObject;
 
 + (void)setDefaultCachePolicy:(RESTClientCachePolicy *)cachePolicy {
     [defaultCachePolicy release];
