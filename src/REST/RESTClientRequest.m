@@ -28,6 +28,8 @@ static RESTClientCachePolicy *defaultCachePolicy = nil;
         self.parameters = [[[NSMutableDictionary alloc] init] autorelease];
 		self.headers = [[[NSMutableDictionary alloc] init] autorelease];
         self.cachePolicy = [[defaultCachePolicy copy] autorelease];
+		
+		[self.headers setValue:@"application/json, text/javascript, */*" forKey:@"Accept"];
     }
     return self;
 }
