@@ -29,6 +29,8 @@
 -(id)init;
 
 -(NSDictionary *)performRequest:(RESTClientRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
+// Adding this method mostly to be able to use 
+-(NSURL *)urlForRequest:(RESTClientRequest *)request;
 -(void)performRequestAsync:(RESTClientRequest *)request target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil;
 -(void)RESTClientAsyncRequestFinished:(RESTClientAsyncRequest *)request;
 

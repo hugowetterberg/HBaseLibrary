@@ -103,6 +103,15 @@ static RESTClient *sharedClient = nil;
     return response;
 }
 
+
+-(NSURL *)urlForRequest:(RESTClientRequest *)request {
+	// Alter the request if the delegate supports it
+    if ([delegate respondsToSelector:@selector(RESTClient:alterRESTRequest:)]) {
+        [delegate RESTClient:self alterRESTRequest:request];
+    }
+	return [request fullUrl];
+}
+
 -(void)performRequestAsync:(RESTClientRequest *)request target:(id)aTargetOrNil selector:(SEL)aSelectorOrNil failSelector:(SEL)aFailSelectorOrNil {
     // Alter the request if the delegate supports it
     if ([delegate respondsToSelector:@selector(RESTClient:alterRESTRequest:)]) {

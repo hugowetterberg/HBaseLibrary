@@ -72,6 +72,7 @@
 }
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	NSLog(@"Telling the table that section %d is called '%@'", section, [[elements objectAtIndex:section] label]);
     return [[elements objectAtIndex:section] label];
 }
 
