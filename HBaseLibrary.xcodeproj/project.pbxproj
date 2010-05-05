@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AA747D9F0F9514B9006C5449 /* HBaseLibrary_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* HBaseLibrary_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
-		AF09066C107A548E0055C76A /* HForm.h in Headers */ = {isa = PBXBuildFile; fileRef = AF09066A107A548E0055C76A /* HForm.h */; };
 		AF189584105E16A800D26022 /* RESTClientRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AF189582105E16A800D26022 /* RESTClientRequest.h */; };
 		AF189585105E16A800D26022 /* RESTClientRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF189583105E16A800D26022 /* RESTClientRequest.m */; };
 		AF2DCEB31043432C00995821 /* HSimpleCache.h in Headers */ = {isa = PBXBuildFile; fileRef = AF2DCEAC1043432C00995821 /* HSimpleCache.h */; };
@@ -87,11 +86,12 @@
 		AFA204A71062158F008404D4 /* RESTClientCachePolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA204A51062158F008404D4 /* RESTClientCachePolicy.m */; };
 		AFA3F1581056C4B600721131 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA3F1561056C4B600721131 /* NSString+MD5.h */; };
 		AFA3F1591056C4B600721131 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA3F1571056C4B600721131 /* NSString+MD5.m */; };
-		AFD8BA221072A51700547DB6 /* HFormView.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD8BA201072A51700547DB6 /* HFormView.h */; };
-		AFD8BA231072A51700547DB6 /* HFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD8BA211072A51700547DB6 /* HFormView.m */; };
-		AFD8BA261072A6C100547DB6 /* HFormElement.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD8BA241072A6C100547DB6 /* HFormElement.h */; };
-		AFD8BA2A1072A87600547DB6 /* HFormTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD8BA281072A87600547DB6 /* HFormTextField.h */; };
-		AFD8BA2B1072A87600547DB6 /* HFormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD8BA291072A87600547DB6 /* HFormTextField.m */; };
+		AFA6FE78119146B600C579E3 /* HForm.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA6FE72119146B600C579E3 /* HForm.h */; };
+		AFA6FE79119146B600C579E3 /* HFormElement.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA6FE73119146B600C579E3 /* HFormElement.h */; };
+		AFA6FE7A119146B600C579E3 /* HFormTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA6FE74119146B600C579E3 /* HFormTextField.h */; };
+		AFA6FE7B119146B600C579E3 /* HFormTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA6FE75119146B600C579E3 /* HFormTextField.m */; };
+		AFA6FE7C119146B600C579E3 /* HFormView.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA6FE76119146B600C579E3 /* HFormView.h */; };
+		AFA6FE7D119146B600C579E3 /* HFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA6FE77119146B600C579E3 /* HFormView.m */; };
 		AFDA90C0105EA0A50042ED21 /* RESTClientAsyncRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */; };
 		AFDA90C1105EA0A50042ED21 /* RESTClientAsyncRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */; };
 		AFDA90C9105EC0C20042ED21 /* NSString+HTMLDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = AFDA90C8105EC0C20042ED21 /* NSString+HTMLDecode.h */; };
@@ -102,7 +102,6 @@
 /* Begin PBXFileReference section */
 		AA747D9E0F9514B9006C5449 /* HBaseLibrary_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBaseLibrary_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		AF09066A107A548E0055C76A /* HForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HForm.h; sourceTree = "<group>"; };
 		AF189582105E16A800D26022 /* RESTClientRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientRequest.h; sourceTree = "<group>"; };
 		AF189583105E16A800D26022 /* RESTClientRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClientRequest.m; sourceTree = "<group>"; };
 		AF2DCE4E103F125A00995821 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; wrapsLines = 1; };
@@ -182,11 +181,12 @@
 		AFA204A51062158F008404D4 /* RESTClientCachePolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClientCachePolicy.m; sourceTree = "<group>"; };
 		AFA3F1561056C4B600721131 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MD5.h"; path = "src/NSString+MD5.h"; sourceTree = "<group>"; };
 		AFA3F1571056C4B600721131 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MD5.m"; path = "src/NSString+MD5.m"; sourceTree = "<group>"; };
-		AFD8BA201072A51700547DB6 /* HFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormView.h; sourceTree = "<group>"; };
-		AFD8BA211072A51700547DB6 /* HFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormView.m; sourceTree = "<group>"; };
-		AFD8BA241072A6C100547DB6 /* HFormElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormElement.h; sourceTree = "<group>"; };
-		AFD8BA281072A87600547DB6 /* HFormTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormTextField.h; sourceTree = "<group>"; };
-		AFD8BA291072A87600547DB6 /* HFormTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormTextField.m; sourceTree = "<group>"; };
+		AFA6FE72119146B600C579E3 /* HForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HForm.h; sourceTree = "<group>"; };
+		AFA6FE73119146B600C579E3 /* HFormElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormElement.h; sourceTree = "<group>"; };
+		AFA6FE74119146B600C579E3 /* HFormTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormTextField.h; sourceTree = "<group>"; };
+		AFA6FE75119146B600C579E3 /* HFormTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormTextField.m; sourceTree = "<group>"; };
+		AFA6FE76119146B600C579E3 /* HFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFormView.h; sourceTree = "<group>"; };
+		AFA6FE77119146B600C579E3 /* HFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFormView.m; sourceTree = "<group>"; };
 		AFDA90BE105EA0A50042ED21 /* RESTClientAsyncRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTClientAsyncRequest.h; sourceTree = "<group>"; };
 		AFDA90BF105EA0A50042ED21 /* RESTClientAsyncRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTClientAsyncRequest.m; sourceTree = "<group>"; };
 		AFDA90C8105EC0C20042ED21 /* NSString+HTMLDecode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTMLDecode.h"; path = "src/NSString+HTMLDecode.h"; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AFD8BA161072A49800547DB6 /* Form */,
+				AFA6FE71119146B600C579E3 /* Form */,
 				AF2DCEAB1043432C00995821 /* Caching */,
 				AF3CD851103543AE00920352 /* Strings */,
 				AF7A5E80103035DE001BCFC9 /* ImageLoading */,
@@ -405,17 +405,18 @@
 			path = src/REST;
 			sourceTree = "<group>";
 		};
-		AFD8BA161072A49800547DB6 /* Form */ = {
+		AFA6FE71119146B600C579E3 /* Form */ = {
 			isa = PBXGroup;
 			children = (
-				AF09066A107A548E0055C76A /* HForm.h */,
-				AFD8BA201072A51700547DB6 /* HFormView.h */,
-				AFD8BA211072A51700547DB6 /* HFormView.m */,
-				AFD8BA241072A6C100547DB6 /* HFormElement.h */,
-				AFD8BA281072A87600547DB6 /* HFormTextField.h */,
-				AFD8BA291072A87600547DB6 /* HFormTextField.m */,
+				AFA6FE72119146B600C579E3 /* HForm.h */,
+				AFA6FE73119146B600C579E3 /* HFormElement.h */,
+				AFA6FE74119146B600C579E3 /* HFormTextField.h */,
+				AFA6FE75119146B600C579E3 /* HFormTextField.m */,
+				AFA6FE76119146B600C579E3 /* HFormView.h */,
+				AFA6FE77119146B600C579E3 /* HFormView.m */,
 			);
 			name = Form;
+			path = src/Form;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,10 +470,10 @@
 				AFDA90C9105EC0C20042ED21 /* NSString+HTMLDecode.h in Headers */,
 				AFDA90E4105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.h in Headers */,
 				AFA204A61062158F008404D4 /* RESTClientCachePolicy.h in Headers */,
-				AFD8BA221072A51700547DB6 /* HFormView.h in Headers */,
-				AFD8BA261072A6C100547DB6 /* HFormElement.h in Headers */,
-				AFD8BA2A1072A87600547DB6 /* HFormTextField.h in Headers */,
-				AF09066C107A548E0055C76A /* HForm.h in Headers */,
+				AFA6FE78119146B600C579E3 /* HForm.h in Headers */,
+				AFA6FE79119146B600C579E3 /* HFormElement.h in Headers */,
+				AFA6FE7A119146B600C579E3 /* HFormTextField.h in Headers */,
+				AFA6FE7C119146B600C579E3 /* HFormView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,8 +557,8 @@
 				AFDA90C1105EA0A50042ED21 /* RESTClientAsyncRequest.m in Sources */,
 				AFDA90E5105EC32E0042ED21 /* NSMutableDictionary+HTTPParameters.m in Sources */,
 				AFA204A71062158F008404D4 /* RESTClientCachePolicy.m in Sources */,
-				AFD8BA231072A51700547DB6 /* HFormView.m in Sources */,
-				AFD8BA2B1072A87600547DB6 /* HFormTextField.m in Sources */,
+				AFA6FE7B119146B600C579E3 /* HFormTextField.m in Sources */,
+				AFA6FE7D119146B600C579E3 /* HFormView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
