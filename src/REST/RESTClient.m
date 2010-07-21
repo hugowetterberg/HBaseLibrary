@@ -80,6 +80,7 @@ static RESTClient *sharedClient = nil;
             [query setHTTPBody:request.body];
         }
         
+		*error = nil;
         responseData = [NSURLConnection sendSynchronousRequest:query 
                                              returningResponse:response error:error];
         if (*error) {
