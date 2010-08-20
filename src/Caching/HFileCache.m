@@ -120,7 +120,7 @@
     // Remove and re-create cache directory
     if ([[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
         [[NSFileManager defaultManager] removeItemAtPath:cachePath error:nil];
-        [[NSFileManager defaultManager] createDirectoryAtPath:cachePath attributes:nil];
+		[[NSFileManager defaultManager] createDirectoryAtPath:cachePath withIntermediateDirectories:YES attributes:nil error:nil];
     }
 }
 
